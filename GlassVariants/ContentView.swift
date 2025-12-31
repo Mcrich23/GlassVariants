@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+struct GlassEffectView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UINavigationController {
+        .init(rootViewController: GlassEffectViewController())
+    }
+    
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        
     }
 }
 
 #Preview {
-    ContentView()
+    GlassEffectView()
 }

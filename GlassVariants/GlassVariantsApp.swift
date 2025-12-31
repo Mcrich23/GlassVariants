@@ -11,7 +11,7 @@ import SwiftUI
 struct GlassVariantsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GlassEffectView()
         }
     }
 }
