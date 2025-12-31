@@ -72,6 +72,10 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
         )
     }()
     
+    private lazy var sheetBarButtonItem: UIBarButtonItem = {
+        UIBarButtonItem(title: "Sheet", style: .plain, target: self, action: #selector(presentSheet))
+    }()
+    
     private var glass: NSObject? = {
         guard let glassClass = NSClassFromString("_UIViewGlass") as? NSObject.Type else {
             return nil
@@ -99,6 +103,7 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
         ])
         
         navigationItem.rightBarButtonItem = menuBarButtonItem
+        navigationItem.leftBarButtonItem = sheetBarButtonItem
     }
     
     // MARK: - Private Methods
@@ -185,6 +190,32 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
         return UIMenu(children: [element])
     }
     
+    @objc private func presentSheet() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .systemBackground
+        
+        let label = UILabel()
+        label.text = "Hello World"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        viewController.view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor)
+        ])
+        
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            
+            sheet.perform(NSSelectorFromString("_setLargeBackground:"), with: glass)
+            sheet.perform(NSSelectorFromString("_setNonLargeBackground:"), with: glass)
+        }
+        
+        present(viewController, animated: true)
+    }
+
     private func updateEffect() {
         guard let effect = createGlassEffect() else { return }
         visualEffectView1.effect = effect
