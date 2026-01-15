@@ -19,6 +19,9 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
     }()
     
     private lazy var containerView: UIVisualEffectView = {
+        // UIGlassContainerEffect methods:
+        // - (double) spacing
+        // - (void) setSpacing:(double)arg1
         let effectClass: AnyClass? = NSClassFromString("UIGlassContainerEffect")
         let effect: UIVisualEffect? = {
             guard let effectClass = effectClass else { return nil }
@@ -109,6 +112,18 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
     // MARK: - Private Methods
     
     private func createGlassEffect() -> UIVisualEffect? {
+        // UIGlassEffect:
+        // Class Methods:
+        //  + (id) effectWithGlass:(id)arg1
+        //  + (id) effectWithStyle:(long)arg1
+        // Instance Methods:
+        //  - (void) setStyle:(long)arg1
+        //  - (long) style
+        //  - (void) setInteractive:(BOOL)arg1
+        //  - (id) glass
+        //  - (BOOL) isInteractive
+        //  - (void) setTintColor:(id)arg1
+        //  - (id) tintColor
         guard let glassEffectClass = NSClassFromString("UIGlassEffect"),
               let glass = self.glass else {
             return nil
@@ -128,22 +143,22 @@ class GlassEffectViewController: UIViewController, UIColorPickerViewControllerDe
     }
     
     private func createGlass(withVariant variant: Int) -> NSObject? {
-        guard let glassClass = NSClassFromString("_UIViewGlass") as? NSObject.Type else {
-            return nil
+        let glassClass = objc_lookUpClass("_UIViewGlass")! as AnyObject
+        let glass = glassClass._alloc()._init(variant: 3)
+        return glass as? NSObject
+    }
+    
+    fileprivate final class PrivateSelectors: NSObject {
+        
+        @objc(alloc)
+        func _alloc() -> AnyObject {
+            fatalError("Do not call")
         }
         
-        let selector = NSSelectorFromString("initWithVariant:")
-        let allocated = glassClass.perform(NSSelectorFromString("alloc")).takeUnretainedValue() as! NSObject
-        
-        guard allocated.responds(to: selector) else {
-            return nil
+        @objc(initWithVariant:)
+        func _init(variant: Int) -> AnyObject {
+            fatalError("Do not call")
         }
-        
-        let method = allocated.method(for: selector)
-        typealias InitWithVariantFunc = @convention(c) (NSObject, Selector, Int) -> NSObject?
-        let initWithVariant = unsafeBitCast(method, to: InitWithVariantFunc.self)
-        
-        return initWithVariant(allocated, selector, variant)
     }
     
     private func getVariant(from glass: NSObject) -> Int {

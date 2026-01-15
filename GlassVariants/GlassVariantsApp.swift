@@ -12,6 +12,7 @@ struct GlassVariantsApp: App {
     var body: some Scene {
         WindowGroup {
             GlassEffectView()
+                .ignoresSafeArea()
         }
     }
 }
