@@ -17,17 +17,6 @@ struct GlassEffectView: UIViewControllerRepresentable {
     }
 }
 
-//struct GlassEffectView: View {
-//    var body: some View {
-//        GlassView(variant: 0)
-//        .background {
-//            Image(._0)
-//                .resizable()
-//                .scaledToFill()
-//        }
-//    }
-//}
-
 #Preview {
     GlassEffectView()
 }
