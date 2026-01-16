@@ -57,23 +57,41 @@ private struct ControlPanel: View {
 struct LiquidGlassDemo: View {
     @State private var variant: Int = 11
     @State private var cornerRadius: Double = 12
-    @State private var showPreview: Bool = true
+    @State private var isShowingSheet: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 40) {
-            Text("Liquid Glass Playground")
-                .font(.title.weight(.bold))
-
-            ControlPanel(variant: $variant, cornerRadius: $cornerRadius)
+            Group {
+                Text("Liquid Glass Playground")
+                    .font(.title.weight(.bold))
+                
+                ControlPanel(variant: $variant, cornerRadius: $cornerRadius)
+            }
+            .foregroundStyle(.white)
 
             GlassPreview(
                 variant: $variant,
                 cornerRadius: $cornerRadius
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Button {
+                isShowingSheet.toggle()
+            } label: {
+                Text("Sheet")
+                    .frame(maxWidth: 500)
+                    .padding(.vertical, 2)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.red)
+            .buttonBorderShape(.capsule)
+            .sheet(isPresented: $isShowingSheet) {
+                Text("Hello World")
+                    .glassSheet(variant: variant)
+                    .presentationDetents([.medium, .large])
+            }
         }
-        .foregroundStyle(.white)
-        .padding([.bottom, .horizontal])
+        .padding(.horizontal)
         .background {
             Image(._0)
                 .resizable()

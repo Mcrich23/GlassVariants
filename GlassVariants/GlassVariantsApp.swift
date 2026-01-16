@@ -11,21 +11,7 @@ import SwiftUI
 struct GlassVariantsApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView {
-                Tab {
-                    GlassEffectView()
-                        .ignoresSafeArea()
-                } label: {
-                    Text("집돌이")
-                }
-                
-                Tab {
-                    LiquidGlassDemo()
-                } label: {
-                    Text("Julian Windeck")
-                }
-            }
-            .ignoresSafeArea()
+            LiquidGlassDemo()
         }
     }
 }
