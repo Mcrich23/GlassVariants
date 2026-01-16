@@ -73,7 +73,7 @@ struct LiquidGlassDemo: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .foregroundStyle(.white)
-        .padding(.horizontal)
+        .padding([.bottom, .horizontal])
         .background {
             Image(._0)
                 .resizable()
@@ -81,17 +81,5 @@ struct LiquidGlassDemo: View {
                 .ignoresSafeArea()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-    }
-}
-
-@main
-struct LiquidGlassDemoApp: App {
-    var body: some Scene {
-        WindowGroup(id: "main") {
-            LiquidGlassDemo()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.clear)
-        }
-        .defaultSize(width: 700, height: 300)
     }
 }
