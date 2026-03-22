@@ -5,8 +5,9 @@ import re
 import sys
 import os
 
-def get_header(module_name, abi_name, package_name, exported_import):
+def get_header(module_name, abi_name, package_name, exported_import, custom_imports=""):
     """Generate the swift-interface header."""
+    custom_imports_section = f"\n{custom_imports}" if custom_imports else ""
     return f"""// swift-interface-format-version: 1.0
 // swift-module-flags: -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -library-level api -enable-experimental-feature Macros -enable-experimental-feature ExtensionMacros -module-abi-name {exported_import} -enable-experimental-feature IsolatedAny2 -enable-upcoming-feature InferSendableFromCaptures -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -user-module-version 7.0.84.1.401 -module-name {module_name} -module-abi-name {exported_import} -package-name {exported_import}
 // swift-module-flags-ignorable: -public-module-name {abi_name} -formal-cxx-interoperability-mode=off -project-name {exported_import} -interface-compiler-version 6.2
@@ -14,7 +15,7 @@ import _Concurrency
 import CoreFoundation
 import QuartzCore
 import Swift
-@_exported import {exported_import}
+@_exported import {exported_import}{custom_imports_section}
 """
 
 AVAILABLE = "@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)"
@@ -120,7 +121,7 @@ def make_public(line, in_protocol=False):
     return indent + attributes_part + "public " + declarations_part
 
 
-def transform_file(input_path, output_path, module_name, abi_name, package_name, replace_prefixes, exported_import):
+def transform_file(input_path, output_path, module_name, abi_name, package_name, replace_prefixes, exported_import, custom_imports=""):
     with open(input_path, 'r') as f:
         lines = f.readlines()
     
@@ -138,7 +139,7 @@ def transform_file(input_path, output_path, module_name, abi_name, package_name,
     print(f"Found {len(declared_types)} declared types in {os.path.basename(input_path)}")
     
     output_lines = []
-    header = get_header(module_name, abi_name, package_name, exported_import)
+    header = get_header(module_name, abi_name, package_name, exported_import, custom_imports)
     output_lines.append(header)
     
     pattern_str = r'\b(?:' + '|'.join(re.escape(p) for p in replace_prefixes) + r')\.([a-zA-Z_]\w*)\b'
@@ -220,6 +221,7 @@ def main():
             'package_name': 'SwiftUI',
             'replace_prefixes': ['SwiftUI'],
             'exported_import': 'SwiftUI',
+            'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
         },
         {
             'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
@@ -240,7 +242,8 @@ def main():
         print(f"\n=== Processing {os.path.basename(cfg['input'])} ===\n")
         transform_file(
             cfg['input'], cfg['output'],
-            cfg['module_name'], cfg['abi_name'], cfg['package_name'], cfg['replace_prefixes'], cfg['exported_import']
+            cfg['module_name'], cfg['abi_name'], cfg['package_name'], cfg['replace_prefixes'], cfg['exported_import'],
+            cfg.get('custom_imports', '')
         )
 
 if __name__ == '__main__':
