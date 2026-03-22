@@ -1,0 +1,372 @@
+// swift-interface-format-version: 1.0
+// swift-module-flags: -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -library-level api -enable-experimental-feature Macros -enable-experimental-feature ExtensionMacros -module-abi-name SwiftUI -enable-experimental-feature IsolatedAny2 -enable-upcoming-feature InferSendableFromCaptures -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -user-module-version 7.0.84.1.401 -module-name SwiftUI_LiquidGlass -module-abi-name SwiftUI -package-name SwiftUI
+// swift-module-flags-ignorable: -public-module-name SwiftUI -formal-cxx-interoperability-mode=off -project-name SwiftUI -interface-compiler-version 6.2
+import _Concurrency
+import CoreFoundation
+import QuartzCore
+import Swift
+@_exported import SwiftUI
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct _ShapeSet : Swift.Sendable {
+  public init(shapes: [SwiftUI.AnyShape], smoothness: CoreFoundation.CGFloat = 0)
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUI.View {
+  nonisolated public func materialEffect(_ material: SwiftUI_LiquidGlass.Material, in shape: SwiftUI_LiquidGlass._ShapeSet) -> some SwiftUI.View
+  
+  @_alwaysEmitIntoClient nonisolated public func materialEffect<S>(_ material: SwiftUI_LiquidGlass.Material, in shape: S) -> some SwiftUI.View where S : SwiftUI.Shape {
+        return materialEffect(material,
+            in: _ShapeSet(shapes: [AnyShape(shape)]))
+    }
+  
+}
+
+public struct Material : Swift.Sendable {
+}
+
+extension SwiftUI_LiquidGlass.Material {
+  @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+  public struct _GlassVariant {
+      public enum InteractionState {
+          case idle
+          case disabled
+          case rollover
+          case pressed
+          case deeplyPressed
+          
+          public var hashValue: Swift.Int {
+              get
+          }
+          
+          public func hash(into: inout Swift.Hasher)
+          
+          public static func == (_: SwiftUI_LiquidGlass.Material._GlassVariant.InteractionState, _: SwiftUI_LiquidGlass.Material._GlassVariant.InteractionState) -> Swift.Bool
+      }
+      public enum Size {
+          case small
+          case medium
+          case large
+          
+          public var hashValue: Swift.Int {
+              get
+          }
+          
+          public func hash(into: inout Swift.Hasher)
+          
+          public static func == (_: SwiftUI_LiquidGlass.Material._GlassVariant.Size, _: SwiftUI_LiquidGlass.Material._GlassVariant.Size) -> Swift.Bool
+      }
+
+      public var hashValue: Swift.Int {
+          get
+      }
+
+      public func contentLensing(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func excludingPlatter() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func forceScrim() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func subvariant(_: Swift.String) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func focusOffset(_: SwiftUI.UnitPoint) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func forceSubdued() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func sharpTinting(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func contentHidden(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func boostWhitePoint(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func excludingShadow() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func interactionState(_: SwiftUI_LiquidGlass.Material._GlassVariant.InteractionState) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func excludingEdgeBleed() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func excludingForeground() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func fixedBackgroundColor(_: SwiftUI.Color) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func forceIncreasedContrast() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func highlightsDisplayAngle(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func excludingOuterRefraction() -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func mix(with: SwiftUI_LiquidGlass.Material._GlassVariant, by: Swift.Double) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func hash(into: inout Swift.Hasher)
+      public func size(_: SwiftUI_LiquidGlass.Material._GlassVariant.Size) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func tint(_: SwiftUI.Color) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func adaptive(colorScheme: SwiftUI.ColorScheme) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func adaptive(_: Swift.Bool) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public func identity() -> SwiftUI_LiquidGlass.Material._GlassVariant
+
+      public static let notificationCenter: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let monogram: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let inspector: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let widgets: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let appIcons: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let abuttedSidebar: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let facetime: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let clear: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let text: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let controlCenter: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let bubbles: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let focusBorder: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let dock: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let regular: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let avplayer: SwiftUI_LiquidGlass.Material._GlassVariant
+      public static let sidebar: SwiftUI_LiquidGlass.Material._GlassVariant
+
+      public static func appIcons(tint: SwiftUI.Color?) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public static func highlightAngle(dynamic: Swift.Bool) -> SwiftUI_LiquidGlass.Angle
+      public static func == (_: SwiftUI_LiquidGlass.Material._GlassVariant, _: SwiftUI_LiquidGlass.Material._GlassVariant) -> Swift.Bool
+      public static func text(tint: SwiftUI.Color?, frost: Swift.Float?, normalizedFactor: Swift.Float?) -> SwiftUI_LiquidGlass.Material._GlassVariant
+      public static func widgets(tint: SwiftUI.Color?) -> SwiftUI_LiquidGlass.Material._GlassVariant
+  }
+  @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+  public static func _glass(_ variant: SwiftUI_LiquidGlass.Material._GlassVariant = .regular) -> SwiftUI_LiquidGlass.Material
+
+  @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+  public static var menu: SwiftUI_LiquidGlass.Material {
+      get
+  }
+  public enum ID {
+      indirect case coreMaterial(light: Swift.String, dark: Swift.String, bundle: Bundle?)
+      case ultraThin
+      case thin
+      case regular
+      case thick
+      case ultraThick
+      case systemBars
+      case contentFill
+      case windowFill
+      case menu
+      case secondaryBackground
+      case tertiaryBackground
+      case quaternaryBackground
+        
+      public var hashValue: Swift.Int {
+          get
+      }
+        
+      public func hash(into: inout Swift.Hasher)
+        
+      public static func == (_: SwiftUI_LiquidGlass.Material.ID, _: SwiftUI_LiquidGlass.Material.ID) -> Swift.Bool
+    }
+}
+
+extension SwiftUI_LiquidGlass._Glass {
+    public static var menu: SwiftUI_LiquidGlass._Glass {
+        get
+    }
+}
+
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct _Glass {
+    public struct Variant {
+        public struct Mix {
+            public var from: SwiftUI_LiquidGlass._Glass.Variant
+            public var to: SwiftUI_LiquidGlass._Glass.Variant
+            public var fraction: Swift.Double
+
+            public static func == (_: SwiftUI_LiquidGlass._Glass.Variant.Mix, _: SwiftUI_LiquidGlass._Glass.Variant.Mix) -> Swift.Bool
+        }
+        public enum Role {
+            indirect case mix(SwiftUI_LiquidGlass._Glass.Variant.Mix)
+            case explicit(SwiftUI_LiquidGlass.Material)
+            case regular
+            case identity
+            case clear
+        }
+        public enum ID {
+            public struct MixID {
+                public var from: SwiftUI_LiquidGlass._Glass.Variant.ID
+                public var to: SwiftUI_LiquidGlass._Glass.Variant.ID
+                public var fraction: CoreGraphics.CGFloat
+
+                public func hash(into: inout Swift.Hasher)
+
+                public static func == (_: SwiftUI_LiquidGlass._Glass.Variant.ID.MixID, _: SwiftUI_LiquidGlass._Glass.Variant.ID.MixID) -> Swift.Bool
+            }
+            indirect case mix(SwiftUI_LiquidGlass._Glass.Variant.ID.MixID)
+            case explicit(SwiftUI_LiquidGlass.Material.ID)
+            case regular
+            case identity
+            case clear
+
+            public init(_: SwiftUI_LiquidGlass._Glass.Variant)
+
+            public var debugDescription: Swift.String {
+                get
+            }
+
+            public func hash(into: inout Swift.Hasher)
+
+            public static func == (_: SwiftUI_LiquidGlass._Glass.Variant.ID, _: SwiftUI_LiquidGlass._Glass.Variant.ID) -> Swift.Bool
+        }
+        public var role: SwiftUI_LiquidGlass._Glass.Variant.Role
+
+        public var explicitMaterial: SwiftUI_LiquidGlass.Material? {
+            get
+        }
+        public var mix: SwiftUI_LiquidGlass._Glass.Variant.Mix? {
+            get
+        }
+
+        public static var clear: SwiftUI_LiquidGlass._Glass.Variant {
+            get
+        }
+        public static var identity: SwiftUI_LiquidGlass._Glass.Variant {
+            get
+        }
+        public static var regular: SwiftUI_LiquidGlass._Glass.Variant {
+            get
+        }
+
+        public static func == (_: SwiftUI_LiquidGlass._Glass.Variant, _: SwiftUI_LiquidGlass._Glass.Variant) -> Swift.Bool
+        public static func mix(_: SwiftUI_LiquidGlass._Glass.Variant.Mix) -> SwiftUI_LiquidGlass._Glass.Variant
+        public static func explicit(_: SwiftUI_LiquidGlass.Material) -> SwiftUI_LiquidGlass._Glass.Variant
+    }
+    public struct Frost {
+        enum Role {
+            case automatic
+            case reduced
+            case none
+        }
+        var role: SwiftUI_LiquidGlass._Glass.Frost.Role
+
+        public static var reduced: SwiftUI_LiquidGlass._Glass.Frost {
+            get
+        }
+        public static var automatic: SwiftUI_LiquidGlass._Glass.Frost {
+            get
+        }
+        public static var none: SwiftUI_LiquidGlass._Glass.Frost {
+            get
+        }
+
+        public static func == (_: SwiftUI_LiquidGlass._Glass.Frost, _: SwiftUI_LiquidGlass._Glass.Frost) -> Swift.Bool
+    }
+    public struct Diffusion {
+        public enum Role {
+            case automatic
+            case increased
+        }
+        public var role: SwiftUI_LiquidGlass._Glass.Diffusion.Role
+
+        public var hashValue: Swift.Int {
+            get
+        }
+
+        public func hash(into: inout Swift.Hasher)
+
+        public static var automatic: SwiftUI_LiquidGlass._Glass.Diffusion {
+            get
+        }
+        public static var increased: SwiftUI_LiquidGlass._Glass.Diffusion {
+            get
+        }
+
+        public static func == (_: SwiftUI_LiquidGlass._Glass.Diffusion, _: SwiftUI_LiquidGlass._Glass.Diffusion) -> Swift.Bool
+    }
+    public struct ContentEffect {
+        public enum Storage {
+            case none
+            case clip
+            case lense
+        }
+        public var storage: SwiftUI_LiquidGlass._Glass.ContentEffect.Storage
+
+        public var hashValue: Swift.Int {
+            get
+        }
+
+        public func hash(into: inout Swift.Hasher)
+
+        public static var none: SwiftUI_LiquidGlass._Glass.ContentEffect {
+            get
+        }
+        public static var lense: SwiftUI_LiquidGlass._Glass.ContentEffect {
+            get
+        }
+        public static var clip: SwiftUI_LiquidGlass._Glass.ContentEffect {
+            get
+        }
+
+        public static func == (_: SwiftUI_LiquidGlass._Glass.ContentEffect, _: SwiftUI_LiquidGlass._Glass.ContentEffect) -> Swift.Bool
+    }
+    public struct InteractionState {
+        public enum Role {
+            case idle
+            case disabled
+            case rollover
+            case pressed
+            case deeplyPressed
+        }
+        var role: SwiftUI_LiquidGlass._Glass.InteractionState.Role
+
+        public static var deeplyPressed: SwiftUI_LiquidGlass._Glass.InteractionState {
+            get
+        }
+        public static var disabled: SwiftUI_LiquidGlass._Glass.InteractionState {
+            get
+        }
+        public static var idle: SwiftUI_LiquidGlass._Glass.InteractionState {
+            get
+        }
+        public static var rollover: SwiftUI_LiquidGlass._Glass.InteractionState {
+            get
+        }
+        public static var pressed: SwiftUI_LiquidGlass._Glass.InteractionState {
+            get
+        }
+
+        public static func == (_: SwiftUI_LiquidGlass._Glass.InteractionState, _: SwiftUI_LiquidGlass._Glass.InteractionState) -> Swift.Bool
+    }
+    public struct Options {
+        public let rawValue: Swift.Int
+
+        public init(rawValue: Swift.Int)
+
+        public var debugDescription: Swift.String {
+            get
+        }
+
+        public static var supportsFlexInteraction: SwiftUI_LiquidGlass._Glass.Options {
+            get
+        }
+    }
+    public struct Resolved {
+        public var material: SwiftUI.Material
+
+        public init(material: SwiftUI.Material)
+    }
+    public struct ID {
+        public var variant: SwiftUI_LiquidGlass._Glass.Variant.ID
+        public var tintColor: SwiftUI.Color?
+        public var interaction: SwiftUI_LiquidGlass._Glass.InteractionState.Role?
+        public var options: SwiftUI_LiquidGlass._Glass.Options
+        public var contentEffect: SwiftUI_LiquidGlass._Glass.ContentEffect
+
+        public var debugDescription: Swift.String {
+            get
+        }
+
+        public func hash(into: inout Swift.Hasher)
+    }
+    public var variant: SwiftUI_LiquidGlass._Glass.Variant
+    public var interaction: SwiftUI_LiquidGlass._Glass.InteractionState?
+    public var tintColor: SwiftUI.Color?
+    public var options: SwiftUI_LiquidGlass._Glass.Options
+    public var contentEffect: SwiftUI_LiquidGlass._Glass.ContentEffect
+
+    public var debugDescription: Swift.String {
+        get
+    }
+
+    public func interaction(_: SwiftUI_LiquidGlass._Glass.InteractionState?) -> SwiftUI_LiquidGlass._Glass
+    public func interactive(_: Swift.Bool) -> SwiftUI_LiquidGlass._Glass
+    public func mix(with: SwiftUI_LiquidGlass._Glass, by: Swift.Double) -> SwiftUI_LiquidGlass._Glass
+    public func tintColor(_: SwiftUI.Color?) -> SwiftUI_LiquidGlass._Glass
+
+    public static var clear: SwiftUI_LiquidGlass._Glass {
+        get
+    }
+    public static var identity: SwiftUI_LiquidGlass._Glass {
+        get
+    }
+    public static var regular: SwiftUI_LiquidGlass._Glass {
+        get
+    }
+
+    public static func == (_: SwiftUI_LiquidGlass._Glass, _: SwiftUI_LiquidGlass._Glass) -> Swift.Bool
+    public static func explicit(_: SwiftUI.Material) -> SwiftUI_LiquidGlass._Glass
+}
