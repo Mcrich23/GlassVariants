@@ -1,7 +1,7 @@
 // LiquidGlassDemo.swift
 // An interactive playground for testing LiquidGlassBackground
 
-import SwiftUI
+import SwiftUI_LiquidGlass
 
 private struct GlassPreview: View {
     @Binding var variant: Int
@@ -9,8 +9,8 @@ private struct GlassPreview: View {
 
     var body: some View {
         ZStack {
-            GlassView(variant: variant)
-                .clipShape(.rect(cornerRadius: cornerRadius))
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(._glass(.init(rawValue: variant)))
             VStack(spacing: 12) {
                 Image(systemName: "sparkles")
                     .font(.system(size: 44))
@@ -22,7 +22,51 @@ private struct GlassPreview: View {
     }
 }
 
-
+extension Material._GlassVariant {
+    init(rawValue: Int) {
+        self = switch rawValue {
+        case 0: .regular
+        case 1: .clear
+        case 2: .appIcons(tint: nil)
+        case 3: .widgets(tint: nil)
+        case 4: .notificationCenter
+        case 5: .focusBorder
+        case 6: .monogram
+        case 7: .abuttedSidebar
+        case 8: .bubbles
+        case 9: .avplayer
+        case 10: .inspector
+        case 11: .sidebar
+        case 12: .text
+        case 13: .facetime
+        case 14: .controlCenter
+        case 15: .dock
+        default: .regular
+        }
+    }
+    
+    static func getName(rawValue: Int) -> String {
+        switch rawValue {
+        case 0: "Regular"
+        case 1: "Clear"
+        case 2: "App Icons"
+        case 3: "Widgets"
+        case 4: "Notification Center"
+        case 5: "Focus Border"
+        case 6: "Monogram"
+        case 7: "Abutted Sidebar"
+        case 8: "Bubbles"
+        case 9: "AVPlayer"
+        case 10: "Inspector"
+        case 11: "Sidebar"
+        case 12: "Text"
+        case 13: "FaceTime"
+        case 14: "Control Center"
+        case 15: "Dock"
+        default: "Regular"
+        }
+    }
+}
 
 private struct ControlPanel: View {
     @Binding var variant: Int
@@ -31,22 +75,36 @@ private struct ControlPanel: View {
     var body: some View {
         VStack(spacing: 32) {
             VStack(alignment: .leading) {
-                Text("Glass Variant")
+                HStack {
+                    Text("Glass Variant")
+                    Spacer()
+                    Text(Material._GlassVariant.getName(rawValue: variant))
+                        .font(.caption)
+                        .frame(minWidth: 75)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .foregroundStyle(Color.primary)
+                        .background(.background, in: Capsule())
+                }
                 Slider(value: Binding(
                     get: { Double(variant) },
                     set: { variant = Int($0) }
-                ), in: 0...19, step: 1)
-                Text("Current: \(variant)")
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                ), in: 0...15, step: 1)
             }
 
             VStack(alignment: .leading) {
-                Text("Corner Radius")
+                HStack {
+                    Text("Corner Radius")
+                    Spacer()
+                    Text("\(Int(cornerRadius))")
+                        .font(.caption)
+                        .frame(minWidth: 30)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .foregroundStyle(Color.primary)
+                        .background(.background, in: Capsule())
+                }
                 Slider(value: $cornerRadius, in: 0...60, step: 1)
-                Text("Current: \(Int(cornerRadius)) pt")
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
     }
@@ -99,5 +157,20 @@ struct LiquidGlassDemo: View {
                 .ignoresSafeArea()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+    }
+}
+
+extension Material: @retroactive ShapeStyle {}
+
+extension ShapeStyle where Self == Material {
+    public static func _glass(_ variant: Material._GlassVariant = .regular) -> Material {
+        return Material._glass(variant)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func glassEffect<S: Shape>(_ glass: Material._GlassVariant, in shape: S = Rectangle()) -> some View {
+        materialEffect(._glass(glass), in: shape)
     }
 }
