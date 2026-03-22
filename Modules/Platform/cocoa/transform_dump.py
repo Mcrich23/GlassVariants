@@ -219,16 +219,16 @@ def main():
     base_dir = os.path.dirname(__file__)
     
     configs = [
-        {
-            'input': os.path.join(base_dir, 'SwiftUI_LiquidGlass.swiftinterface'),
-            'output': os.path.join(base_dir, 'SwiftUI_LiquidGlass.swiftinterface'),
-            'module_name': 'SwiftUI_LiquidGlass',
-            'abi_name': 'SwiftUI_LiquidGlass',
-            'package_name': 'SwiftUI',
-            'replace_prefixes': ['SwiftUI'],
-            'exported_import': 'SwiftUI',
-            # 'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
-        },
+        # {
+        #     'input': os.path.join(base_dir, 'SwiftUI_LiquidGlass.swiftinterface'),
+        #     'output': os.path.join(base_dir, 'SwiftUI_LiquidGlass.swiftinterface'),
+        #     'module_name': 'SwiftUI_LiquidGlass',
+        #     'abi_name': 'SwiftUI_LiquidGlass',
+        #     'package_name': 'SwiftUI',
+        #     'replace_prefixes': ['SwiftUI'],
+        #     'exported_import': 'SwiftUI',
+        #     # 'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
+        # },
         {
             'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
             'output': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),

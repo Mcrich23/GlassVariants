@@ -6,6 +6,7 @@ import CoreFoundation
 import QuartzCore
 import Swift
 @_exported import SwiftUI
+@_exported import SwiftUICore_LiquidGlass
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct _ShapeSet : Swift.Sendable {
@@ -13,7 +14,7 @@ public struct _ShapeSet : Swift.Sendable {
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
-extension SwiftUI_LiquidGlass.View {
+extension SwiftUI.View {
   nonisolated public func materialEffect(_ material: SwiftUI_LiquidGlass.Material, in shape: SwiftUI_LiquidGlass._ShapeSet) -> some SwiftUI_LiquidGlass.View
   
   @_alwaysEmitIntoClient nonisolated public func materialEffect<S>(_ material: SwiftUI_LiquidGlass.Material, in shape: S) -> some SwiftUI_LiquidGlass.View where S : SwiftUI_LiquidGlass.Shape {
@@ -23,8 +24,11 @@ extension SwiftUI_LiquidGlass.View {
   
 }
 
+public struct Material : Swift.Sendable {
+}
+
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
-extension SwiftUI_LiquidGlass.Material {
+extension Material {
   public struct _GlassVariant {
       public enum InteractionState {
           case idle
