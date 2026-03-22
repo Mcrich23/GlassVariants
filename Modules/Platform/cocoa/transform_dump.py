@@ -229,16 +229,16 @@ def main():
         #     'exported_import': 'SwiftUI',
         #     # 'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
         # },
-        {
-            'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
-            'output': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
-            'module_name': 'SwiftUICore_LiquidGlass',
-            'abi_name': 'SwiftUICore_LiquidGlass',
-            'package_name': 'SwiftUICore',
-            'replace_prefixes': ['SwiftUICore', 'SwiftUI'],
-            'exported_import': 'SwiftUICore',
-            'custom_imports': "import PrivateQuartzCore"
-        },
+        # {
+        #     'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
+        #     'output': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
+        #     'module_name': 'SwiftUICore_LiquidGlass',
+        #     'abi_name': 'SwiftUICore_LiquidGlass',
+        #     'package_name': 'SwiftUICore',
+        #     'replace_prefixes': ['SwiftUICore', 'SwiftUI'],
+        #     'exported_import': 'SwiftUICore',
+        #     'custom_imports': "import PrivateQuartzCore"
+        # },
     ]
     
     for cfg in configs:
