@@ -23,8 +23,7 @@ struct SPIGlassView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
             RoundedRectangle(cornerRadius: 25)
-                .fill(.clear)
-                .glass(_Glass())
+                .fill(._glass(.sidebar.forceScrim()))
                 .aspectRatio(1, contentMode: .fit)
                 .padding(.horizontal)
         }
