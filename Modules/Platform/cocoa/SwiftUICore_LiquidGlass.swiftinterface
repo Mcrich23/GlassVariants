@@ -2613,3 +2613,587 @@ extension SwiftUICore_LiquidGlass.SDFFormat: Swift.Hashable {
 extension SwiftUICore_LiquidGlass.SDFFormat: Swift.Equatable {
     public static func == (_: Self, _: Self) -> Swift.Bool
 }
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct GlassItemView {
+    public var item: SwiftUICore_LiquidGlass.GlassContainer.Item
+    public var entry: SwiftUICore_LiquidGlass.GlassContainer.Entry
+    public var resolved: SwiftUICore_LiquidGlass.GlassContainer.ResolvedStorage
+    public var data: SwiftUICore_LiquidGlass.GlassContainer.DataStorage
+
+    public var body: some View {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public protocol GlassContainerNamespace {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.GlassItemView: SwiftUICore_LiquidGlass.GlassContainerNamespace {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public protocol MaterialBackdropObserver: AnyObject {
+    func luminanceDidChange(_: Swift.Float?)
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct MaterialBackdropProxy {
+    public class Storage {
+        public struct Data {
+            public var luminance: Swift.Float?
+            public var observers: [SwiftUICore_LiquidGlass.MaterialBackdropProxy.Observer]
+        }
+    }
+    public struct Observer {
+        public weak var observer: SwiftUICore_LiquidGlass.MaterialBackdropObserver?
+    }
+    public var storage: SwiftUICore_LiquidGlass.MaterialBackdropProxy.Storage
+
+    public init()
+
+    public var luminance: Swift.Float? {
+        get
+        set
+    }
+
+    public func addObserver(_: SwiftUICore_LiquidGlass.MaterialBackdropObserver)
+    public func removeObserver(_: SwiftUICore_LiquidGlass.MaterialBackdropObserver)
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.MaterialBackdropProxy: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass.MaterialBackdropProxy, _: SwiftUICore_LiquidGlass.MaterialBackdropProxy) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public enum GlassContainer {
+    public struct TransitionSettings {
+        public var spring: SwiftUICore_LiquidGlass.Spring
+        public var delayFactor: Swift.Double
+        public var minDelay: Swift.Double
+        public var maxDelay: Swift.Double
+
+        public func resolvedTransitionAnimation(in: SwiftUICore_LiquidGlass.EnvironmentValues, update: SwiftUICore_LiquidGlass.GlassContainer.ResolvedUpdate) -> SwiftUICore_LiquidGlass.Animation
+
+        public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.TransitionSettings, _: SwiftUICore_LiquidGlass.GlassContainer.TransitionSettings) -> Swift.Bool
+    }
+    public struct AppearanceSettings {
+        public var scale: Swift.Double
+        public var blurRadius: Swift.Double
+
+        public func reduceMotion(_: Swift.Bool) -> SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings
+
+        public static var materialize: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings {
+            get
+        }
+        public static var match: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings {
+            get
+        }
+
+        public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings, _: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings) -> Swift.Bool
+    }
+    public struct ScalePulseSettings {
+        public var scaleUpSpring: SwiftUICore_LiquidGlass.Spring
+        public var scaleDownHeightSpring: SwiftUICore_LiquidGlass.Spring
+        public var scaleDownHeightDelay: Swift.Double
+        public var scaleDownWidthSpring: SwiftUICore_LiquidGlass.Spring
+        public var scaleDownWidthDelay: Swift.Double
+        public var transitionBlurRadius: Swift.Double
+        public var transitionBlurSpring: SwiftUICore_LiquidGlass.Spring
+
+        public static var defaultValue: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings {
+            get
+        }
+
+        public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings, _: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings) -> Swift.Bool
+    }
+    public struct TranslationKickSettings {
+        public var offsetSpring: SwiftUICore_LiquidGlass.Spring
+        public var offsetDelay: Swift.Double
+        public var returnSpring: SwiftUICore_LiquidGlass.Spring
+        public var returnDelay: Swift.Double
+        public var kickFactor: Swift.Double
+
+        public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings, _: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings) -> Swift.Bool
+    }
+    public struct SettingsOverride {
+        public var transition: SwiftUICore_LiquidGlass.GlassContainer.TransitionSettings?
+        public var appearance: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings?
+        public var scalePulse: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings?
+        public var translationKick: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings?
+
+        public init()
+
+        public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.SettingsOverride, _: SwiftUICore_LiquidGlass.GlassContainer.SettingsOverride) -> Swift.Bool
+    }
+    public struct MatchingResult<A> {
+        public var value: A
+        public var kind: SwiftUICore_LiquidGlass.GlassContainer.MatchingKind
+        public var index: Swift.Int?
+
+        public var description: Swift.String {
+            get
+        }
+    }
+    public enum MatchingKind {
+        case reuse
+        case insertOrRemove
+    }
+    public struct Configuration {
+        public var smoothness: CoreGraphics.CGFloat
+    }
+    public struct EntryState {
+        public var matchingEntryID: SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID?
+        public var matchingItemIDs: [SwiftUICore_LiquidGlass.GlassContainer.Item.ID]
+        public var transitionState: SwiftUICore_LiquidGlass.GlassContainer.TransitionState
+        public var transitionPhase: SwiftUICore_LiquidGlass.TransitionPhase
+        public var pendingShape: SwiftUICore_LiquidGlass.AnyShape?
+        public var pendingMaterial: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial?
+        public var pendingTint: SwiftUICore_LiquidGlass.Color?
+        public var pendingMatchingItemIDs: [SwiftUICore_LiquidGlass.GlassContainer.Item.ID]
+    }
+    public struct DisplayMaterial {
+        public struct ID {
+            public var target: SwiftUICore_LiquidGlass._Glass.Variant.ID
+            public var source: SwiftUICore_LiquidGlass._Glass.Variant.ID?
+            public var updateSeed: Swift.UInt32?
+            public var zIndex: Swift.Double?
+            public var backdropProxy: Swift.ObjectIdentifier?
+
+            public func hash(into: inout Swift.Hasher)
+        }
+        public struct ComparableID {
+            public var zIndex: Swift.Double?
+        }
+        public var value: SwiftUICore_LiquidGlass._Glass
+        public var zIndex: Swift.Double?
+        public var backdropProxy: SwiftUICore_LiquidGlass.MaterialBackdropProxy?
+        public var backdropObserver: SwiftUICore_LiquidGlass.GlassEffectBackdropObserver?
+        public var target: SwiftUICore_LiquidGlass._Glass?
+        public var source: SwiftUICore_LiquidGlass._Glass?
+        public var updateSeed: Swift.UInt32?
+
+        public var isIdentity: Swift.Bool {
+            get
+        }
+        public var id: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial.ID {
+            get
+        }
+        public var description: Swift.String {
+            get
+        }
+        public var comparableID: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial.ComparableID {
+            get
+        }
+    }
+    public struct Entry {
+        public struct DistanceContext {
+            public var pixelLength: CoreGraphics.CGFloat
+            public var data: SwiftUICore_LiquidGlass.GlassContainer.DataStorage
+            public var proxy: SwiftUICore_LiquidGlass.GeometryProxy
+        }
+        public enum ModelID {
+            case group(SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID)
+            case item(SwiftUICore_LiquidGlass.GlassContainer.Item.ID)
+            case invalid
+
+            public var description: Swift.String {
+                get
+            }
+
+            public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID) -> Swift.Bool
+            public func hash(into: inout Swift.Hasher)
+
+            public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID, _: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID) -> Swift.Bool
+        }
+        public struct StableID {
+            public var id: Swift.Int
+        }
+        public struct GroupID {
+            public var variant: SwiftUICore_LiquidGlass._Glass.Variant.ID
+            public var isEnabled: Swift.Bool
+            public var id: SwiftUICore_LiquidGlass.AnyHashable2
+            public var namespace: SwiftUICore_LiquidGlass.Namespace.ID
+
+            public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID, _: SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID) -> Swift.Bool
+        }
+        public struct ShapeBoundsResult {
+
+        }
+        public var id: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID
+        public var glass: SwiftUICore_LiquidGlass._Glass
+        public var radii: SwiftUICore_LiquidGlass.RectangleCornerRadii
+        public var shape: SwiftUICore_LiquidGlass.AnyShape
+        public var items: [SwiftUICore_LiquidGlass.GlassContainer.Item]
+        public var isEnabled: Swift.Bool
+        public var isHidden: Swift.Bool
+        public var material: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial
+        public var stableID: SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID
+        public var stateSeed: Swift.UInt32
+
+        public var description: Swift.String {
+            get
+        }
+
+        public func resetTransition()
+        public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Entry) -> Swift.Bool
+        public func unionBounds(itemAnchors: [SwiftUICore_LiquidGlass.Anchor<CGRect>], proxy: SwiftUICore_LiquidGlass.GeometryProxy) -> CGRect
+    }
+    public enum ResolvedPhase {
+        public enum PreparingConfiguration {
+            case animationEnabled
+            case animationDisabled
+        }
+        case preparing(SwiftUICore_LiquidGlass.GlassContainer.ResolvedPhase.PreparingConfiguration, SwiftUICore_LiquidGlass.GlassContainer.ResolvedUpdate)
+        case animating(SwiftUICore_LiquidGlass.GlassContainer.ResolvedUpdate)
+    }
+    public struct Storage {
+        public var data: SwiftUICore_LiquidGlass.GlassContainer.DataStorage
+        public var entries: [SwiftUICore_LiquidGlass.GlassContainer.Entry]
+        public var materials: [SwiftUICore_LiquidGlass.Material]
+
+        public func appendToExistingEntry(item: SwiftUICore_LiquidGlass.GlassContainer.Item) -> Swift.Bool
+        public func appendToNewEntry(item: SwiftUICore_LiquidGlass.GlassContainer.Item)
+    }
+    public struct DataStorage {
+        public struct Key {}
+        public var smoothness: CoreGraphics.CGFloat
+        public var itemData: [SwiftUICore_LiquidGlass.ViewIdentity : SwiftUICore_LiquidGlass.GlassContainer.ItemData]
+
+        public var description: Swift.String {
+            get
+        }
+    }
+    public struct ItemData {
+
+        public var description: Swift.String {
+            get
+        }
+    }
+    public struct Effect {
+        public var material: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial
+        public var smoothness: CoreGraphics.CGFloat
+        public var entries: [SwiftUICore_LiquidGlass.GlassContainer.Entry]
+
+        public var description: Swift.String {
+            get
+        }
+    }
+    public struct TransitionState {
+        public var appearance: SwiftUICore_LiquidGlass.GlassContainer.Appearance
+        public var scheduledDelay: SwiftUICore_LiquidGlass.GlassContainer.ScheduledDelay
+        public var scalePulse: SwiftUICore_LiquidGlass.GlassContainer.ScalePulse
+        public var translationKick: SwiftUICore_LiquidGlass.GlassContainer.TranslationKick
+    }
+    public struct Item {
+        public struct Key {}
+        public struct DistanceContext {
+            public var oldStorage: SwiftUICore_LiquidGlass.GlassContainer.Storage
+            public var newStorage: SwiftUICore_LiquidGlass.GlassContainer.Storage
+            public var proxy: SwiftUICore_LiquidGlass.GeometryProxy
+            public var pixelLength: CoreGraphics.CGFloat
+        }
+        public struct ID {
+            public struct Explicit {
+                public var base: SwiftUICore_LiquidGlass.AnyHashable2
+                public var namespace: SwiftUICore_LiquidGlass.Namespace.ID
+            }
+            public var implicit: SwiftUICore_LiquidGlass.ViewIdentity
+            public var explicit: SwiftUICore_LiquidGlass.GlassContainer.Item.ID.Explicit?
+
+            public var description: Swift.String {
+                get
+            }
+
+            public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Item.ID) -> Swift.Bool
+
+            public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Item.ID, _: SwiftUICore_LiquidGlass.GlassContainer.Item.ID) -> Swift.Bool
+        }
+        public var id: SwiftUICore_LiquidGlass.GlassContainer.Item.ID
+        public var isEnabled: Swift.Bool
+        public var glass: SwiftUICore_LiquidGlass._Glass
+        public var radii: SwiftUICore_LiquidGlass.RectangleCornerRadii
+        public var baseShape: SwiftUICore_LiquidGlass.AnyShape
+        public var seed: SwiftUICore_LiquidGlass.VersionSeed
+        public var groupID: SwiftUICore_LiquidGlass.AnyHashable2?
+        public var groupNamespace: SwiftUICore_LiquidGlass.Namespace.ID?
+        public var transition: SwiftUICore_LiquidGlass._GlassEffectTransition
+        public var isHidden: Swift.Bool
+        public var zIndex: Swift.Double?
+        public var transform: SwiftUICore_LiquidGlass.ProjectionTransform
+        public var backdropProxy: SwiftUICore_LiquidGlass.MaterialBackdropProxy?
+        public var backdropObserver: SwiftUICore_LiquidGlass.GlassEffectBackdropObserver?
+        public var matchingItemID: SwiftUICore_LiquidGlass.GlassContainer.Item.ID?
+        public var pendingMatchingItemID: SwiftUICore_LiquidGlass.GlassContainer.Item.ID?
+        public var transitionState: SwiftUICore_LiquidGlass.GlassContainer.TransitionState
+        public var transitionPhase: SwiftUICore_LiquidGlass.TransitionPhase
+
+        public var description: Swift.String {
+            get
+        }
+
+        public func matchingResult(to: SwiftUICore_LiquidGlass.GlassContainer.Item, context: SwiftUICore_LiquidGlass.GlassContainer.Item.DistanceContext) -> SwiftUICore_LiquidGlass.GlassContainer.MatchingResult<CoreGraphics.CGFloat>
+    }
+    public enum ResolvedUpdate {
+        case materialize
+    }
+    public struct ResolvedStorage {
+        public var effects: [SwiftUICore_LiquidGlass.GlassContainer.Effect]
+    }
+    public struct TranslationKick {
+        public var value: Swift.Int
+        public var pendingValue: Swift.Int
+        public var settings: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings
+
+    }
+    public struct ScalePulse {
+        public var value: Swift.Int
+        public var anchor: SwiftUICore_LiquidGlass.UnitPoint
+        public var blurContent: Swift.Bool
+        public var pendingValue: Swift.Int
+        public var settings: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings
+    }
+    public struct ScheduledDelay {
+        public var value: Swift.Int
+        public var pendingValue: Swift.Int
+        public var delay: Swift.Double
+    }
+    public struct Appearance {
+        public var scaleProgress: CoreGraphics.CGFloat
+        public var pendingScaleProgress: CoreGraphics.CGFloat?
+        public var opacity: CoreGraphics.CGFloat
+        public var blurRadius: CoreGraphics.CGFloat
+        public var settings: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings
+
+        public init()
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct ViewIdentity {
+    public struct Tracker {
+        public var id: SwiftUICore_LiquidGlass.ViewIdentity
+        public var resetSeed: Swift.UInt32
+
+        public init()
+
+        public func update(for: SwiftUICore_LiquidGlass._GraphInputs.Phase) -> (value: SwiftUICore_LiquidGlass.ViewIdentity, changed: Swift.Bool)
+    }
+    public let seed: Swift.UInt32
+
+    public init()
+
+    public static let nextSeed: Swift.UInt32
+    public static var invalid: SwiftUICore_LiquidGlass.ViewIdentity {
+        get
+    }
+
+    public static func == (_: SwiftUICore_LiquidGlass.ViewIdentity, _: SwiftUICore_LiquidGlass.ViewIdentity) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct _GraphInputs {
+    public struct Phase {
+        public var value: Swift.UInt32
+        
+        public init(value: Swift.UInt32)
+        public init()
+        
+        public var isBeingRemoved: Swift.Bool {
+            get
+            set
+        }
+        public var resetSeed: Swift.UInt32 {
+            get
+            set
+        }
+        public var isInserted: Swift.Bool {
+            get
+        }
+        
+        public func merge(_: SwiftUICore_LiquidGlass._GraphInputs.Phase)
+        
+        public static var invalid: SwiftUICore_LiquidGlass._GraphInputs.Phase {
+            get
+        }
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass._GraphInputs.Phase: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass._GraphInputs.Phase, _: SwiftUICore_LiquidGlass._GraphInputs.Phase) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.ViewIdentity: Swift.Hashable {
+    public var hashValue: Swift.Int {
+        get
+    }
+
+    public func hash(into: inout Swift.Hasher)
+    public func _rawHashValue(seed: Swift.Int) -> Swift.Int
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.ViewIdentity: Swift.CustomStringConvertible {
+    public var description: Swift.String {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public class GlassEffectBackdropObserver: SwiftUICore_LiquidGlass.SDFShape.BackdropObserver {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct SDFShape {
+    public class BackdropObserver {
+        public func luminanceDidChange(_: Swift.Float?)
+    }
+    public var style: SwiftUICore_LiquidGlass.SDFStyle
+    public var ovalization: Swift.Float
+    public var backdropObserver: SwiftUICore_LiquidGlass.SDFShape.BackdropObserver?
+
+    public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
+
+    public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.SDFShape: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass.SDFShape, _: SwiftUICore_LiquidGlass.SDFShape) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.SDFShape: SwiftUICore_LiquidGlass.ProtobufEncodableMessage {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.SDFShape: SwiftUICore_LiquidGlass.ProtobufDecodableMessage {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct AnyHashable2 {
+    public var box: SwiftUICore_LiquidGlass.AnyHashableBox
+
+    public init<A>(_: A) where A: Swift.Hashable
+
+    public var anyValue: Swift.Hashable {
+        get
+    }
+    public var anyHashable: Swift.AnyHashable {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyHashable2: Swift.Hashable {
+    public var hashValue: Swift.Int {
+        get
+    }
+
+    public func hash(into: inout Swift.Hasher)
+    public func _rawHashValue(seed: Swift.Int) -> Swift.Int
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyHashable2: Swift.CustomStringConvertible {
+    public var description: Swift.String {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyHashable2: Swift.CustomDebugStringConvertible {
+    public var debugDescription: Swift.String {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyHashable2: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass.AnyHashable2, _: SwiftUICore_LiquidGlass.AnyHashable2) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyHashable2: Swift._HasCustomAnyHashableRepresentation {
+    public func _toCustomAnyHashable() -> Swift.AnyHashable?
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public class AnyHashableBox {
+    public var description: Swift.String {
+        get
+    }
+    public var anyValue: Swift.Hashable {
+        get
+    }
+    public var debugDescription: Swift.String {
+        get
+    }
+
+    public func hash(into: inout Swift.Hasher)
+    public func isEqual(to: SwiftUICore_LiquidGlass.AnyHashableBox) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct VersionSeed {
+    public var value: Swift.UInt32
+
+    public init(value: Swift.UInt32)
+    public init(nodeId: Swift.UInt32, viewSeed: Swift.UInt32)
+
+    public var isInvalid: Swift.Bool {
+        get
+    }
+    public var isEmpty: Swift.Bool {
+        get
+    }
+
+    public func mergeValue(_: Swift.UInt32)
+    public func merge(_: SwiftUICore_LiquidGlass.VersionSeed)
+    public func matches(_: SwiftUICore_LiquidGlass.VersionSeed) -> Swift.Bool
+
+    public static var invalid: SwiftUICore_LiquidGlass.VersionSeed {
+        get
+    }
+    public static var empty: SwiftUICore_LiquidGlass.VersionSeed {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.VersionSeed: Swift.CustomStringConvertible {
+    public var description: Swift.String {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct _GlassEffectTransition {
+    public enum Kind {
+        case matchedGeometry(SwiftUICore_LiquidGlass._GlassEffectTransition.MatchedGeometryConfiguration)
+        case identity
+        case materialize
+    }
+    public struct MatchedGeometryConfiguration {
+        public var properties: SwiftUICore_LiquidGlass.MatchedGeometryProperties
+        public var anchor: SwiftUICore_LiquidGlass.UnitPoint
+    }
+    public var kind: SwiftUICore_LiquidGlass._GlassEffectTransition.Kind
+
+    public static var materialize: SwiftUICore_LiquidGlass._GlassEffectTransition {
+        get
+    }
+    public static var matchedGeometry: SwiftUICore_LiquidGlass._GlassEffectTransition {
+        get
+    }
+    public static var identity: SwiftUICore_LiquidGlass._GlassEffectTransition {
+        get
+    }
+
+    public static func matchedGeometry(properties: SwiftUICore_LiquidGlass.MatchedGeometryProperties, anchor: SwiftUICore_LiquidGlass.UnitPoint) -> SwiftUICore_LiquidGlass._GlassEffectTransition
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass._GlassEffectTransition: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass._GlassEffectTransition, _: SwiftUICore_LiquidGlass._GlassEffectTransition) -> Swift.Bool
+}
