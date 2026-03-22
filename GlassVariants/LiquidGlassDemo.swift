@@ -6,15 +6,22 @@ import SwiftUI_LiquidGlass
 private struct GlassPreview: View {
     @Binding var variant: Int
     @Binding var cornerRadius: Double
+    @Binding var variantType: VariantType
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(._glass(.init(rawValue: variant)))
+            switch variantType {
+            case .uikit:
+                GlassView(variant: variant)
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            case .swiftui:
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(._glass(.init(rawValue: variant)))
+            }
             VStack(spacing: 12) {
                 Image(systemName: "sparkles")
                     .font(.system(size: 44))
-                Text("Variant \(variant)")
+                Text(variantType == .swiftui ? Material._GlassVariant.getName(rawValue: variant) : "Variant \(variant)")
                     .font(.title3.weight(.semibold))
             }
             .padding()
@@ -68,43 +75,52 @@ extension Material._GlassVariant {
     }
 }
 
+enum VariantType: String, CaseIterable, Identifiable {
+    case uikit = "_UIViewGlass"
+    case swiftui = "Material._GlassVariant"
+    
+    var id: String { rawValue }
+}
+
 private struct ControlPanel: View {
     @Binding var variant: Int
-    @Binding var cornerRadius: Double
+    @Binding var variantType: VariantType
 
     var body: some View {
         VStack(spacing: 32) {
+            Picker("Glass Variant Type", selection: $variantType) {
+                ForEach(VariantType.allCases) { type in
+                    Text(type.rawValue)
+                        .tag(type)
+                }
+            }
+            .pickerStyle(.segmented)
+            .background(.background.tertiary, in: Capsule())
+            
             VStack(alignment: .leading) {
                 HStack {
                     Text("Glass Variant")
                     Spacer()
-                    Text(Material._GlassVariant.getName(rawValue: variant))
-                        .font(.caption)
-                        .frame(minWidth: 75)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .foregroundStyle(Color.primary)
-                        .background(.background, in: Capsule())
+                    Group {
+                        switch variantType {
+                        case .uikit:
+                            Text("Variant \(variant)")
+                                .frame(minWidth: 30)
+                        case .swiftui:
+                            Text(Material._GlassVariant.getName(rawValue: variant))
+                                .frame(minWidth: 75)
+                        }
+                    }
+                    .font(.caption)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .foregroundStyle(Color.primary)
+                    .background(.background, in: Capsule())
                 }
                 Slider(value: Binding(
                     get: { Double(variant) },
                     set: { variant = Int($0) }
-                ), in: 0...15, step: 1)
-            }
-
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Corner Radius")
-                    Spacer()
-                    Text("\(Int(cornerRadius))")
-                        .font(.caption)
-                        .frame(minWidth: 30)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .foregroundStyle(Color.primary)
-                        .background(.background, in: Capsule())
-                }
-                Slider(value: $cornerRadius, in: 0...60, step: 1)
+                ), in: 0...(variantType == .uikit ? 19 : 15), step: 1)
             }
         }
     }
@@ -115,6 +131,7 @@ private struct ControlPanel: View {
 struct LiquidGlassDemo: View {
     @State private var variant: Int = 11
     @State private var cornerRadius: Double = 12
+    @State private var variantType: VariantType = .swiftui
     @State private var isShowingSheet: Bool = false
 
     var body: some View {
@@ -123,30 +140,33 @@ struct LiquidGlassDemo: View {
                 Text("Liquid Glass Playground")
                     .font(.title.weight(.bold))
                 
-                ControlPanel(variant: $variant, cornerRadius: $cornerRadius)
+                ControlPanel(variant: $variant, variantType: $variantType)
             }
             .foregroundStyle(.white)
 
             GlassPreview(
                 variant: $variant,
-                cornerRadius: $cornerRadius
+                cornerRadius: $cornerRadius,
+                variantType: $variantType
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Button {
-                isShowingSheet.toggle()
-            } label: {
-                Text("Sheet")
-                    .frame(maxWidth: 500)
-                    .padding(.vertical, 2)
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.red)
-            .buttonBorderShape(.capsule)
-            .sheet(isPresented: $isShowingSheet) {
-                Text("Hello World")
-                    .glassSheet(variant: variant)
-                    .presentationDetents([.medium, .large])
+            if variantType == .uikit {
+                Button {
+                    isShowingSheet.toggle()
+                } label: {
+                    Text("Sheet")
+                        .frame(maxWidth: 500)
+                        .padding(.vertical, 2)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+                .buttonBorderShape(.capsule)
+                .sheet(isPresented: $isShowingSheet) {
+                    Text("Hello World")
+                        .glassSheet(variant: variant)
+                        .presentationDetents([.medium, .large])
+                }
             }
         }
         .padding(.horizontal)
