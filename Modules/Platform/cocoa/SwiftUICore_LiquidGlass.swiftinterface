@@ -3234,3 +3234,7 @@ public struct GlassEffectConfiguration {
     public var glass: SwiftUICore_LiquidGlass._Glass
     public var shape: SwiftUICore_LiquidGlass.AnyShape
 }
+
+extension SwiftUICore.Glass {
+    public var base: SwiftUICore_LiquidGlass._Glass { get set }
+}
