@@ -14,25 +14,25 @@ public enum GlassContainer {
         public var delayFactor: Swift.Double
         public var minDelay: Swift.Double
         public var maxDelay: Swift.Double
-
+        
         public func resolvedTransitionAnimation(in: SwiftUICore_LiquidGlass.EnvironmentValues, update: SwiftUICore_LiquidGlass.GlassContainer.ResolvedUpdate) -> SwiftUICore_LiquidGlass.Animation
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.TransitionSettings, _: SwiftUICore_LiquidGlass.GlassContainer.TransitionSettings) -> Swift.Bool
     }
     public struct AppearanceSettings {
         public var scale: Swift.Double
         public var maxPointScale: CGSize
         public var blurRadius: Swift.Double
-
+        
         public func reduceMotion(_: Swift.Bool) -> SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings
-
+        
         public static var materialize: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings {
             get
         }
         public static var match: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings, _: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings) -> Swift.Bool
     }
     public struct ScalePulseSettings {
@@ -48,7 +48,7 @@ public enum GlassContainer {
         public static var defaultValue: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings, _: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings) -> Swift.Bool
     }
     public struct TranslationKickSettings {
@@ -65,9 +65,9 @@ public enum GlassContainer {
         public var appearance: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings?
         public var scalePulse: SwiftUICore_LiquidGlass.GlassContainer.ScalePulseSettings?
         public var translationKick: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings?
-
+        
         public init()
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.SettingsOverride, _: SwiftUICore_LiquidGlass.GlassContainer.SettingsOverride) -> Swift.Bool
     }
     public struct MatchingResult<A> {
@@ -77,7 +77,7 @@ public enum GlassContainer {
         public var sourceFrame: CGRect
         public var minOffset: CGSize
         public var index: Swift.Int?
-
+        
         public var description: Swift.String {
             get
         }
@@ -107,7 +107,7 @@ public enum GlassContainer {
             public var updateSeed: Swift.UInt32?
             public var zIndex: Swift.Double?
             public var backdropProxy: Swift.ObjectIdentifier?
-
+            
             public func hash(into: inout Swift.Hasher)
         }
         public struct ComparableID {
@@ -120,7 +120,7 @@ public enum GlassContainer {
         public var target: SwiftUICore_LiquidGlass._Glass?
         public var source: SwiftUICore_LiquidGlass._Glass?
         public var updateSeed: Swift.UInt32?
-
+        
         public var id: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial.ID {
             get
         }
@@ -145,14 +145,14 @@ public enum GlassContainer {
             case group(SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID)
             case item(SwiftUICore_LiquidGlass.GlassContainer.Item.ID)
             case invalid
-
+            
             public var description: Swift.String {
                 get
             }
-
+            
             public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID) -> Swift.Bool
             public func hash(into: inout Swift.Hasher)
-
+            
             public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID, _: SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID) -> Swift.Bool
         }
         public struct StableID {
@@ -163,13 +163,13 @@ public enum GlassContainer {
             public var isEnabled: Swift.Bool
             public var id: SwiftUICore_LiquidGlass.AnyHashable2
             public var namespace: SwiftUICore_LiquidGlass.Namespace.ID
-
+            
             public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID, _: SwiftUICore_LiquidGlass.GlassContainer.Entry.GroupID) -> Swift.Bool
         }
         public struct ShapeBoundsResult {
             public var bounds: CGRect
             public var originalBounds: CGRect
-
+            
             public var minimizedBounds: CGRect {
                 get
             }
@@ -184,11 +184,11 @@ public enum GlassContainer {
         public var material: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial
         public var stableID: SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID
         public var stateSeed: Swift.UInt32
-
+        
         public var description: Swift.String {
             get
         }
-
+        
         public func resetTransition()
         public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Entry) -> Swift.Bool
         public func unionBounds(itemAnchors: [SwiftUICore_LiquidGlass.Anchor<CGRect>], proxy: SwiftUICore_LiquidGlass.GeometryProxy) -> CGRect
@@ -205,7 +205,7 @@ public enum GlassContainer {
         public var data: SwiftUICore_LiquidGlass.GlassContainer.DataStorage
         public var entries: [SwiftUICore_LiquidGlass.GlassContainer.Entry]
         public var materials: [SwiftUICore_LiquidGlass.Material]
-
+        
         public func appendToExistingEntry(item: SwiftUICore_LiquidGlass.GlassContainer.Item) -> Swift.Bool
         public func appendToNewEntry(item: SwiftUICore_LiquidGlass.GlassContainer.Item)
     }
@@ -213,7 +213,7 @@ public enum GlassContainer {
         public struct Key {}
         public var smoothness: CoreGraphics.CGFloat
         public var itemData: [SwiftUICore_LiquidGlass.ViewIdentity : SwiftUICore_LiquidGlass.GlassContainer.ItemData]
-
+        
         public var description: Swift.String {
             get
         }
@@ -227,7 +227,7 @@ public enum GlassContainer {
         public var material: SwiftUICore_LiquidGlass.GlassContainer.DisplayMaterial
         public var smoothness: CoreGraphics.CGFloat
         public var entries: [SwiftUICore_LiquidGlass.GlassContainer.Entry]
-
+        
         public var description: Swift.String {
             get
         }
@@ -253,13 +253,13 @@ public enum GlassContainer {
             }
             public var implicit: SwiftUICore_LiquidGlass.ViewIdentity
             public var explicit: SwiftUICore_LiquidGlass.GlassContainer.Item.ID.Explicit?
-
+            
             public var description: Swift.String {
                 get
             }
-
+            
             public func matches(_: SwiftUICore_LiquidGlass.GlassContainer.Item.ID) -> Swift.Bool
-
+            
             public static func == (_: SwiftUICore_LiquidGlass.GlassContainer.Item.ID, _: SwiftUICore_LiquidGlass.GlassContainer.Item.ID) -> Swift.Bool
         }
         public var id: SwiftUICore_LiquidGlass.GlassContainer.Item.ID
@@ -280,11 +280,11 @@ public enum GlassContainer {
         public var pendingMatchingItemID: SwiftUICore_LiquidGlass.GlassContainer.Item.ID?
         public var transitionState: SwiftUICore_LiquidGlass.GlassContainer.TransitionState
         public var transitionPhase: SwiftUICore_LiquidGlass.TransitionPhase
-
+        
         public var description: Swift.String {
             get
         }
-
+        
         public func matchingResult(to: SwiftUICore_LiquidGlass.GlassContainer.Item, context: SwiftUICore_LiquidGlass.GlassContainer.Item.DistanceContext) -> SwiftUICore_LiquidGlass.GlassContainer.MatchingResult<CoreGraphics.CGFloat>
     }
     public enum ResolvedUpdate {
@@ -298,7 +298,7 @@ public enum GlassContainer {
         public var offsets: [CGSize]
         public var pendingValue: Swift.Int
         public var settings: SwiftUICore_LiquidGlass.GlassContainer.TranslationKickSettings
-
+        
         public var kickDistance: CGSize {
             get
         }
@@ -321,7 +321,7 @@ public enum GlassContainer {
         public var opacity: CoreGraphics.CGFloat
         public var blurRadius: CoreGraphics.CGFloat
         public var settings: SwiftUICore_LiquidGlass.GlassContainer.AppearanceSettings
-
+        
         public init()
     }
 }
@@ -329,10 +329,10 @@ public enum GlassContainer {
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct VersionSeed {
     public var value: Swift.UInt32
-
+    
     public init(value: Swift.UInt32)
     public init(nodeId: Swift.UInt32, viewSeed: Swift.UInt32)
-
+    
     public var isInvalid: Swift.Bool {
         get
     }
@@ -342,11 +342,11 @@ public struct VersionSeed {
     public var description: Swift.String {
         get
     }
-
+    
     public func mergeValue(_: Swift.UInt32)
     public func merge(_: SwiftUICore_LiquidGlass.VersionSeed)
     public func matches(_: SwiftUICore_LiquidGlass.VersionSeed) -> Swift.Bool
-
+    
     public static var empty: SwiftUICore_LiquidGlass.VersionSeed {
         get
     }
@@ -362,7 +362,7 @@ public struct _Glass {
             public var from: SwiftUICore_LiquidGlass._Glass.Variant
             public var to: SwiftUICore_LiquidGlass._Glass.Variant
             public var fraction: Swift.Double
-
+            
             public static func == (_: SwiftUICore_LiquidGlass._Glass.Variant.Mix, _: SwiftUICore_LiquidGlass._Glass.Variant.Mix) -> Swift.Bool
         }
         public enum Role {
@@ -377,9 +377,9 @@ public struct _Glass {
                 public var from: SwiftUICore_LiquidGlass._Glass.Variant.ID
                 public var to: SwiftUICore_LiquidGlass._Glass.Variant.ID
                 public var fraction: CoreGraphics.CGFloat
-
+                
                 public func hash(into: inout Swift.Hasher)
-
+                
                 public static func == (_: SwiftUICore_LiquidGlass._Glass.Variant.ID.MixID, _: SwiftUICore_LiquidGlass._Glass.Variant.ID.MixID) -> Swift.Bool
             }
             indirect case mix(SwiftUICore_LiquidGlass._Glass.Variant.ID.MixID)
@@ -387,26 +387,26 @@ public struct _Glass {
             case regular
             case identity
             case clear
-
+            
             public init(_: SwiftUICore_LiquidGlass._Glass.Variant)
-
+            
             public var debugDescription: Swift.String {
                 get
             }
-
+            
             public func hash(into: inout Swift.Hasher)
-
+            
             public static func == (_: SwiftUICore_LiquidGlass._Glass.Variant.ID, _: SwiftUICore_LiquidGlass._Glass.Variant.ID) -> Swift.Bool
         }
         public var role: SwiftUICore_LiquidGlass._Glass.Variant.Role
-
+        
         public var explicitMaterial: SwiftUICore_LiquidGlass.Material? {
             get
         }
         public var mix: SwiftUICore_LiquidGlass._Glass.Variant.Mix? {
             get
         }
-
+        
         public static var clear: SwiftUICore_LiquidGlass._Glass.Variant {
             get
         }
@@ -416,7 +416,7 @@ public struct _Glass {
         public static var regular: SwiftUICore_LiquidGlass._Glass.Variant {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._Glass.Variant, _: SwiftUICore_LiquidGlass._Glass.Variant) -> Swift.Bool
         public static func mix(_: SwiftUICore_LiquidGlass._Glass.Variant.Mix) -> SwiftUICore_LiquidGlass._Glass.Variant
         public static func explicit(_: SwiftUICore_LiquidGlass.Material) -> SwiftUICore_LiquidGlass._Glass.Variant
@@ -428,7 +428,7 @@ public struct _Glass {
             case none
         }
         public var role: SwiftUICore_LiquidGlass._Glass.Frost.Role
-
+        
         public static var reduced: SwiftUICore_LiquidGlass._Glass.Frost {
             get
         }
@@ -438,7 +438,7 @@ public struct _Glass {
         public static var none: SwiftUICore_LiquidGlass._Glass.Frost {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._Glass.Frost, _: SwiftUICore_LiquidGlass._Glass.Frost) -> Swift.Bool
     }
     public struct Diffusion {
@@ -447,20 +447,20 @@ public struct _Glass {
             case increased
         }
         public var role: SwiftUICore_LiquidGlass._Glass.Diffusion.Role
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static var automatic: SwiftUICore_LiquidGlass._Glass.Diffusion {
             get
         }
         public static var increased: SwiftUICore_LiquidGlass._Glass.Diffusion {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._Glass.Diffusion, _: SwiftUICore_LiquidGlass._Glass.Diffusion) -> Swift.Bool
     }
     public struct ContentEffect {
@@ -470,13 +470,13 @@ public struct _Glass {
             case lense
         }
         public var storage: SwiftUICore_LiquidGlass._Glass.ContentEffect.Storage
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static var none: SwiftUICore_LiquidGlass._Glass.ContentEffect {
             get
         }
@@ -486,7 +486,7 @@ public struct _Glass {
         public static var clip: SwiftUICore_LiquidGlass._Glass.ContentEffect {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._Glass.ContentEffect, _: SwiftUICore_LiquidGlass._Glass.ContentEffect) -> Swift.Bool
     }
     public struct InteractionState {
@@ -498,7 +498,7 @@ public struct _Glass {
             case deeplyPressed
         }
         public var role: SwiftUICore_LiquidGlass._Glass.InteractionState.Role
-
+        
         public static var deeplyPressed: SwiftUICore_LiquidGlass._Glass.InteractionState {
             get
         }
@@ -514,25 +514,25 @@ public struct _Glass {
         public static var pressed: SwiftUICore_LiquidGlass._Glass.InteractionState {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._Glass.InteractionState, _: SwiftUICore_LiquidGlass._Glass.InteractionState) -> Swift.Bool
     }
     public struct Options {
         public let rawValue: Swift.Int
-
+        
         public init(rawValue: Swift.Int)
-
+        
         public var debugDescription: Swift.String {
             get
         }
-
+        
         public static var supportsFlexInteraction: SwiftUICore_LiquidGlass._Glass.Options {
             get
         }
     }
     public struct Resolved {
         public var material: SwiftUICore_LiquidGlass.Material
-
+        
         public init(material: SwiftUICore_LiquidGlass.Material)
     }
     public struct ID {
@@ -541,11 +541,11 @@ public struct _Glass {
         public var interaction: SwiftUICore_LiquidGlass._Glass.InteractionState.Role?
         public var options: SwiftUICore_LiquidGlass._Glass.Options
         public var contentEffect: SwiftUICore_LiquidGlass._Glass.ContentEffect
-
+        
         public var debugDescription: Swift.String {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
     }
     public var variant: SwiftUICore_LiquidGlass._Glass.Variant
@@ -553,16 +553,16 @@ public struct _Glass {
     public var tintColor: SwiftUICore_LiquidGlass.Color?
     public var options: SwiftUICore_LiquidGlass._Glass.Options
     public var contentEffect: SwiftUICore_LiquidGlass._Glass.ContentEffect
-
+    
     public var debugDescription: Swift.String {
         get
     }
-
+    
     public func interaction(_: SwiftUICore_LiquidGlass._Glass.InteractionState?) -> SwiftUICore_LiquidGlass._Glass
     public func interactive(_: Swift.Bool) -> SwiftUICore_LiquidGlass._Glass
     public func mix(with: SwiftUICore_LiquidGlass._Glass, by: Swift.Double) -> SwiftUICore_LiquidGlass._Glass
     public func tintColor(_: SwiftUICore_LiquidGlass.Color?) -> SwiftUICore_LiquidGlass._Glass
-
+    
     public static var clear: SwiftUICore_LiquidGlass._Glass {
         get
     }
@@ -572,7 +572,7 @@ public struct _Glass {
     public static var regular: SwiftUICore_LiquidGlass._Glass {
         get
     }
-
+    
     public static func == (_: SwiftUICore_LiquidGlass._Glass, _: SwiftUICore_LiquidGlass._Glass) -> Swift.Bool
     public static func explicit(_: SwiftUICore_LiquidGlass.Material) -> SwiftUICore_LiquidGlass._Glass
 }
@@ -581,9 +581,9 @@ public struct _Glass {
 public struct _GlassEffectContainer<A> where A: SwiftUICore_LiquidGlass.View {
     public var config: SwiftUICore_LiquidGlass.GlassContainer.Configuration
     public var content: A
-
+    
     public init(smoothness: CoreGraphics.CGFloat?, content: () -> A)
-
+    
     public var body: Body {
         get
     }
@@ -605,7 +605,7 @@ public struct _GlassEffectTransition {
         public var anchor: SwiftUICore_LiquidGlass.UnitPoint
     }
     public var kind: SwiftUICore_LiquidGlass._GlassEffectTransition.Kind
-
+    
     public static var matchedGeometry: SwiftUICore_LiquidGlass._GlassEffectTransition {
         get
     }
@@ -615,7 +615,7 @@ public struct _GlassEffectTransition {
     public static var materialize: SwiftUICore_LiquidGlass._GlassEffectTransition {
         get
     }
-
+    
     public static func matchedGeometry(properties: SwiftUICore_LiquidGlass.MatchedGeometryProperties, anchor: SwiftUICore_LiquidGlass.UnitPoint) -> SwiftUICore_LiquidGlass._GlassEffectTransition
     public static func == (_: SwiftUICore_LiquidGlass._GlassEffectTransition, _: SwiftUICore_LiquidGlass._GlassEffectTransition) -> Swift.Bool
 }
@@ -623,9 +623,9 @@ public struct _GlassEffectTransition {
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct AnyHashable2 {
     public var box: SwiftUICore_LiquidGlass.AnyHashableBox
-
+    
     public init<A>(_: A) where A: Swift.Hashable
-
+    
     public var anyHashable: Swift.AnyHashable {
         get
     }
@@ -641,10 +641,10 @@ public struct AnyHashable2 {
     public var debugDescription: Swift.String {
         get
     }
-
+    
     public func _toCustomAnyHashable() -> Swift.AnyHashable?
     public func hash(into: inout Swift.Hasher)
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.AnyHashable2, _: SwiftUICore_LiquidGlass.AnyHashable2) -> Swift.Bool
 }
 
@@ -666,22 +666,23 @@ public struct MaterialBackdropProxy {
         public weak var observer: SwiftUICore_LiquidGlass.MaterialBackdropObserver?
     }
     public var storage: SwiftUICore_LiquidGlass.MaterialBackdropProxy.Storage
-
+    
     public init()
-
+    
     public var luminance: Swift.Float? {
         get
-
+    }
+    
     public func addObserver(_: SwiftUICore_LiquidGlass.MaterialBackdropObserver)
     public func removeObserver(_: SwiftUICore_LiquidGlass.MaterialBackdropObserver)
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.MaterialBackdropProxy, _: SwiftUICore_LiquidGlass.MaterialBackdropProxy) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public class GlassEffectBackdropObserver: SwiftUICore_LiquidGlass.SDFShape.BackdropObserver {
     public weak var viewGraph: SwiftUICore_LiquidGlass.ViewGraph?
-
+    
     public override func luminanceDidChange(_: Swift.Float?)
 }
 
@@ -695,10 +696,11 @@ extension SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID: Hashable {}
 public class GlassContainerCache: SwiftUICore_LiquidGlass.AnimationListener {
     public struct UnwrappedMaterial {
         public var material: SwiftUICore_LiquidGlass.Material?
-
+        
         public var animatableData: SwiftUICore_LiquidGlass._AnyAnimatableData {
             get
-
+        }
+        
     }
     public let inputs: SwiftUICore_LiquidGlass._ViewInputs
     public weak var viewGraph: SwiftUICore_LiquidGlass.ViewGraph?
@@ -709,9 +711,9 @@ public class GlassContainerCache: SwiftUICore_LiquidGlass.AnimationListener {
     public var entryStates: SwiftUICore_LiquidGlass.SeedValues<SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID, SwiftUICore_LiquidGlass.GlassContainer.EntryState>
     public var entryTints: SwiftUICore_LiquidGlass.SeedValues<SwiftUICore_LiquidGlass.GlassContainer.Entry.ModelID, SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration.Element>
     public var animationCount: Swift.Int
-
+    
     public override init()
-
+    
     public func invalidateResolved(transaction: SwiftUICore_LiquidGlass.Transaction)
     public func entryState(id: SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID) -> SwiftUICore_LiquidGlass.GlassContainer.EntryState
     public func resetInteractionState(id: SwiftUICore_LiquidGlass.GlassContainer.Entry.StableID)
@@ -731,29 +733,29 @@ public struct ViewIdentity {
     public struct Tracker {
         public var id: SwiftUICore_LiquidGlass.ViewIdentity
         public var resetSeed: Swift.UInt32
-
+        
         public init()
-
+        
         public func update(for: SwiftUICore_LiquidGlass._GraphInputs.Phase) -> (value: SwiftUICore_LiquidGlass.ViewIdentity, changed: Swift.Bool)
     }
     public let seed: Swift.UInt32
-
+    
     public init()
-
+    
     public var hashValue: Swift.Int {
         get
     }
     public var description: Swift.String {
         get
     }
-
+    
     public func hash(into: inout Swift.Hasher)
-
+    
     public static var invalid: SwiftUICore_LiquidGlass.ViewIdentity {
         get
     }
     public static let nextSeed: Swift.UInt32
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.ViewIdentity, _: SwiftUICore_LiquidGlass.ViewIdentity) -> Swift.Bool
 }
 
@@ -765,8 +767,8 @@ extension SwiftUICore_LiquidGlass.ViewIdentity: Swift.Hashable {
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct Material {
     public enum ID {
-//        indirect case coreMaterial(light: Swift.String, dark: Swift.String, bundle: NSBundle?)
-//        case provider(SwiftUICore_LiquidGlass.MaterialProviderBoxBase)
+        //        indirect case coreMaterial(light: Swift.String, dark: Swift.String, bundle: NSBundle?)
+        //        case provider(SwiftUICore_LiquidGlass.MaterialProviderBoxBase)
         case layers(Layers)
         case ultraThin
         case thin
@@ -780,13 +782,13 @@ public struct Material {
         case secondaryBackground
         case tertiaryBackground
         case quaternaryBackground
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.Material.ID, _: SwiftUICore_LiquidGlass.Material.ID) -> Swift.Bool
     }
     public struct ResolvedMaterial {
@@ -795,30 +797,31 @@ public struct Material {
         }
         public var id: SwiftUICore_LiquidGlass.Material.ID
         public var flags: SwiftUICore_LiquidGlass.Material.ResolvedMaterial.Flags
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.Material.ResolvedMaterial, _: SwiftUICore_LiquidGlass.Material.ResolvedMaterial) -> Swift.Bool
     }
     public var id: SwiftUICore_LiquidGlass.Material.ID
     public var flags: SwiftUICore_LiquidGlass.Material.ResolvedMaterial.Flags
     public var activeAppearance: SwiftUICore_LiquidGlass.MaterialActiveAppearance
-
+    
     public init(_: SwiftUICore_LiquidGlass.Material.ID)
-
+    
     public var animatableData: SwiftUICore_LiquidGlass._AnyAnimatableData {
         get
-
+    }
+    
     public func disablingBlur(_: Swift.Bool) -> SwiftUICore_LiquidGlass.Material
     public func applyingFiltersInPlace(_: Swift.Bool) -> SwiftUICore_LiquidGlass.Material
     public func materialActiveAppearance(_: SwiftUICore_LiquidGlass.MaterialActiveAppearance) -> SwiftUICore_LiquidGlass.Material
     public func _apply(to: inout SwiftUICore_LiquidGlass._ShapeStyle_Shape)
     public func resolve(in: SwiftUICore_LiquidGlass.EnvironmentValues, role: SwiftUICore_LiquidGlass.ShapeRole?, substrate: Substrate?, shapeMetrics: @autoclosure () -> ShapeMetrics?) -> SwiftUICore_LiquidGlass.Material.ResolvedMaterial
-
+    
     public static let ultraThin: SwiftUICore_LiquidGlass.Material
     public static let regular: SwiftUICore_LiquidGlass.Material
     public static let ultraThick: SwiftUICore_LiquidGlass.Material
@@ -837,7 +840,7 @@ public struct Material {
     }
     public static let chrome: SwiftUICore_LiquidGlass.Material
     public static let thick: SwiftUICore_LiquidGlass.Material
-
+    
     public static func coreMaterial(bundle: Bundle?, provider: (_: SwiftUICore_LiquidGlass.ColorScheme) -> Swift.String) -> SwiftUICore_LiquidGlass.Material
     public static func == (_: SwiftUICore_LiquidGlass.Material, _: SwiftUICore_LiquidGlass.Material) -> Swift.Bool
     public static func _apply(to: inout SwiftUICore_LiquidGlass._ShapeStyle_ShapeType)
@@ -850,7 +853,7 @@ extension SwiftUICore_LiquidGlass.Material {
         public var minimumDistance: CoreGraphics.CGFloat
         public var minimumDistanceOfLargestArea: CoreGraphics.CGFloat
         public var maximumDistance: CoreGraphics.CGFloat
-
+        
         public init(_: SwiftUICore_LiquidGlass.PathSet)
         public init()
     }
@@ -864,7 +867,7 @@ extension SwiftUICore_LiquidGlass.Material {
         public var substrate: Substrate?
         public var shapeDimensions: Swift.ClosedRange<CoreGraphics.CGFloat>?
         public var shapeMetrics: ShapeMetrics?
-
+        
         public init(environment: SwiftUICore_LiquidGlass.EnvironmentValues)
     }
 }
@@ -876,7 +879,7 @@ extension SwiftUICore_LiquidGlass.Material {
         public var backdropLuminance: Swift.Float?
         public var materialTransaction: SwiftUICore_LiquidGlass.Transaction
         public var contentTransaction: SwiftUICore_LiquidGlass.Transaction
-
+        
         public init(environment: SwiftUICore_LiquidGlass.EnvironmentValues)
     }
 }
@@ -887,13 +890,13 @@ extension SwiftUICore_LiquidGlass.Material {
         case caLayer
         case graphicsContext
         case archive
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: Substrate, _: Substrate) -> Swift.Bool
     }
 }
@@ -909,7 +912,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct ColorCurves {
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.ColorCurves
-
+                    
                     public var greenCurve: Swift.SIMD4<Swift.Float> {
                         get
                     }
@@ -932,7 +935,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct GaussianBlur {
                     public var base: SwiftUICore_LiquidGlass.BlurStyle
-
+                    
                     public var isDithered: Swift.Bool {
                         get
                     }
@@ -945,7 +948,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct LuminanceCurve {
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.LuminanceCurve
-
+                    
                     public var amount: Swift.Double {
                         get
                     }
@@ -959,7 +962,7 @@ extension SwiftUICore_LiquidGlass.Material {
                         case layerIndex(Swift.Int)
                     }
                     public var base: SwiftUICore_LiquidGlass.VariableBlurStyle
-
+                    
                     public var radius: CoreGraphics.CGFloat {
                         get
                     }
@@ -978,7 +981,7 @@ extension SwiftUICore_LiquidGlass.Material {
                         case layerIndex(Swift.Int)
                     }
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.DisplacementMap
-
+                    
                     public var mask: Layer.Filter.Contents.DisplacementMap.Mask? {
                         get
                     }
@@ -991,7 +994,7 @@ extension SwiftUICore_LiquidGlass.Material {
                         case layerIndex(Swift.Int)
                     }
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.DisplacementMap
-
+                    
                     public var mask: Layer.Filter.Contents.ChromaticAberrationMap.Mask? {
                         get
                     }
@@ -1001,7 +1004,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct EDRGainMultiply {
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.EDRGainMultiply
-
+                    
                     public var amount: Swift.Float {
                         get
                     }
@@ -1020,7 +1023,7 @@ extension SwiftUICore_LiquidGlass.Material {
                         case layerIndex(Swift.Int)
                     }
                     public var base: SwiftUICore_LiquidGlass.GraphicsFilter.GlassBackgroundStyle
-
+                    
                     public var mask: Layer.Filter.Contents.GlassBackground.Mask? {
                         get
                     }
@@ -1041,19 +1044,19 @@ extension SwiftUICore_LiquidGlass.Material {
                 case edrGainMultiply(Layer.Filter.Contents.EDRGainMultiply)
                 case glassBackground(Layer.Filter.Contents.GlassBackground)
                 case caFilter(SwiftUICore_LiquidGlass.CAFilterProvider)
-
+                
                 public init?(_: SwiftUICore_LiquidGlass.GraphicsFilter)
             }
             public var base: SwiftUICore_LiquidGlass.GraphicsFilter
-
+            
             public var contents: Layer.Filter.Contents {
                 get
             }
-
+            
             public static var averageColor: Layer.Filter {
                 get
             }
-
+            
             public static func displacementMap(amount: CoreGraphics.CGFloat, maskLayerIndex: Swift.UInt) -> Layer.Filter
             public static func caFilter<A>(provider: A) -> Layer.Filter where A: SwiftUICore_LiquidGlass.CAFilterProvider
             public static func brightness(amount: Swift.Double) -> Layer.Filter
@@ -1074,17 +1077,17 @@ extension SwiftUICore_LiquidGlass.Material {
             public var strength: CoreGraphics.CGFloat
             public var lightAngle: SwiftUICore_LiquidGlass.Angle
             public var filters: [Layer.Filter]
-
+            
             public init()
-
+            
             public static func == (_: Layer.Glass, _: Layer.Glass) -> Swift.Bool
         }
         public struct SDFLayer {
             public struct Options {
                 public let rawValue: Swift.UInt32
-
+                
                 public init(rawValue: Swift.UInt32)
-
+                
                 public static var _ovalizeRoundedRectGradients: Layer.SDFLayer.Options {
                     get
                 }
@@ -1099,11 +1102,11 @@ extension SwiftUICore_LiquidGlass.Material {
                 case compositing
                 case content
                 case backdrop
-
+                
                 public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+                
                 public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+                
                 public static func == (_: Layer.SDFLayer.GroupType, _: Layer.SDFLayer.GroupType) -> Swift.Bool
             }
             public struct BackdropLayer {
@@ -1113,9 +1116,9 @@ extension SwiftUICore_LiquidGlass.Material {
                 public var allowsWindowServerAware: Swift.Bool
                 public var updateRate: Swift.Double
                 public var inverseMeshed: Swift.Bool
-
+                
                 public init()
-
+                
                 public static func == (_: Layer.SDFLayer.BackdropLayer, _: Layer.SDFLayer.BackdropLayer) -> Swift.Bool
             }
             public struct GroupLayer {
@@ -1123,20 +1126,20 @@ extension SwiftUICore_LiquidGlass.Material {
                     case mode(SwiftUICore_LiquidGlass.GraphicsContext.BlendMode)
                     indirect case colorMatrix(SwiftUICore_LiquidGlass._ColorMatrix)
                     indirect case backdropAwareColorMatrix(SwiftUICore_LiquidGlass._ColorMatrix)
-
+                    
                     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+                    
                     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+                    
                     public static let normal: Layer.SDFLayer.GroupLayer.Blend
-
+                    
                     public static func == (_: Layer.SDFLayer.GroupLayer.Blend, _: Layer.SDFLayer.GroupLayer.Blend) -> Swift.Bool
                 }
                 public struct Options {
                     public let rawValue: Swift.UInt32
-
+                    
                     public init(rawValue: Swift.UInt32)
-
+                    
                     public static var preservesHue: Layer.SDFLayer.GroupLayer.Options {
                         get
                     }
@@ -1160,21 +1163,22 @@ extension SwiftUICore_LiquidGlass.Material {
                 public var options: Layer.SDFLayer.GroupLayer.Options
                 public var gain: Swift.Float
                 public var maxColorComponent: Swift.Float
-
+                
                 public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
                 public init(_: Layer.SDFLayer, blend: Layer.SDFLayer.GroupLayer.Blend, opacity: Swift.Float)
-
+                
                 public var layer: Layer.SDFLayer {
                     get
-
+                }
+                
                 public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+                
                 public static func == (_: Layer.SDFLayer.GroupLayer, _: Layer.SDFLayer.GroupLayer) -> Swift.Bool
             }
             public enum Contents {
                 public struct Fill {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Fill
-
+                    
                     public var inset: CoreGraphics.CGFloat {
                         get
                     }
@@ -1184,7 +1188,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct Stroke {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Stroke
-
+                    
                     public var lineWidth: CoreGraphics.CGFloat {
                         get
                     }
@@ -1197,7 +1201,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct Gradient {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Gradient
-
+                    
                     public var interpolations: [Swift.SIMD4<Swift.Float>] {
                         get
                     }
@@ -1210,7 +1214,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct Shadow {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Shadow
-
+                    
                     public var color: SwiftUICore_LiquidGlass.Color.Resolved {
                         get
                     }
@@ -1232,14 +1236,14 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct CustomFill {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.CustomFill
-
+                    
                     public var provider: SwiftUICore_LiquidGlass._Material_CustomFillProvider {
                         get
                     }
                 }
                 public struct GlassDisplacement {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.GlassDisplacement
-
+                    
                     public var curvature: CoreGraphics.CGFloat {
                         get
                     }
@@ -1258,7 +1262,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct GlassHighlight {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.GlassHighlight
-
+                    
                     public var color: SwiftUICore_LiquidGlass.Color.Resolved {
                         get
                     }
@@ -1296,18 +1300,18 @@ extension SwiftUICore_LiquidGlass.Material {
                     public var fillHeight: CoreGraphics.CGFloat
                     public var fillSpread: SwiftUICore_LiquidGlass.Angle
                     public var fillAmount: CoreGraphics.CGFloat
-
+                    
                     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
                     public init()
-
+                    
                     public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
                     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+                    
                     public static func == (_: Layer.SDFLayer.Contents.GlassKeyFillHighlight, _: Layer.SDFLayer.Contents.GlassKeyFillHighlight) -> Swift.Bool
                 }
                 public struct Group {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Group
-
+                    
                     public var layers: [Layer.SDFLayer.GroupLayer] {
                         get
                     }
@@ -1320,7 +1324,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct Mask {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.Mask
-
+                    
                     public var content: Layer.SDFLayer {
                         get
                     }
@@ -1330,7 +1334,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 }
                 public struct OutputSDF {
                     public var base: SwiftUICore_LiquidGlass.SDFStyle.OutputSDF
-
+                    
                     public var inset: CoreGraphics.CGFloat {
                         get
                     }
@@ -1353,13 +1357,13 @@ extension SwiftUICore_LiquidGlass.Material {
             public var style: SwiftUICore_LiquidGlass.SDFStyle
             public var options: Layer.SDFLayer.Options
             public var ovalizationAmount: Swift.Float
-
+            
             public var contents: Layer.SDFLayer.Contents {
                 get
             }
-
+            
             public func mask(_: Layer.SDFLayer) -> Layer.SDFLayer
-
+            
             public static func customFill(_: SwiftUICore_LiquidGlass._Material_CustomFillProvider) -> Layer.SDFLayer
             public static func innerStroke(inset: CoreGraphics.CGFloat, color: SwiftUICore_LiquidGlass.Color.Resolved, lineWidth: CoreGraphics.CGFloat) -> Layer.SDFLayer
             public static func outerStroke(inset: CoreGraphics.CGFloat, color: SwiftUICore_LiquidGlass.Color.Resolved, lineWidth: CoreGraphics.CGFloat) -> Layer.SDFLayer
@@ -1391,7 +1395,7 @@ extension SwiftUICore_LiquidGlass.Material {
             }
             public struct Chameleon {
                 public var base: Layer.Chameleon
-
+                
                 public var filters: [Layer.Filter] {
                     get
                 }
@@ -1412,13 +1416,13 @@ extension SwiftUICore_LiquidGlass.Material {
             case backdrop(SwiftUICore_LiquidGlass.BackdropEffect)
             case sdfLayer(Layer.SDFLayer)
             case chameleon(Layer.Chameleon)
-
+            
             public static func == (_: Layer.Storage, _: Layer.Storage) -> Swift.Bool
         }
         public var storage: Layer.Storage
         public var _opacity: Swift.Float
         public var _blendMode: SwiftUICore_LiquidGlass.GraphicsBlendMode
-
+        
         public var compositingFilter: Any? {
             get
         }
@@ -1431,10 +1435,10 @@ extension SwiftUICore_LiquidGlass.Material {
         public var contents: Layer.Contents {
             get
         }
-
+        
         public func opacity(_: Swift.Double) -> Layer
         public func blendMode(_: SwiftUICore_LiquidGlass.BlendMode) -> Layer
-
+        
         public static func == (_: Layer, _: Layer) -> Swift.Bool
         public static func sdf(_: Layer.SDFLayer) -> Layer
         public static func color(_: SwiftUICore_LiquidGlass.Color.Resolved) -> Layer
@@ -1450,7 +1454,7 @@ extension SwiftUICore_LiquidGlass.Material {
         public enum Contents {
             public struct VibrantColorMatrix {
                 public var base: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix
-
+                
                 public var backdropAware: Swift.Bool {
                     get
                 }
@@ -1463,7 +1467,7 @@ extension SwiftUICore_LiquidGlass.Material {
                 public var matrix: SwiftUICore_LiquidGlass._ColorMatrix {
                     get
                 }
-
+                
                 public static func == (_: ForegroundStyle.Contents.VibrantColorMatrix, _: ForegroundStyle.Contents.VibrantColorMatrix) -> Swift.Bool
             }
             case color(SwiftUICore_LiquidGlass.Color.Resolved, SwiftUICore_LiquidGlass.GraphicsContext.BlendMode)
@@ -1477,11 +1481,11 @@ extension SwiftUICore_LiquidGlass.Material {
             case colorMatrix(SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix)
         }
         public var storage: ForegroundStyle.Storage
-
+        
         public var contents: ForegroundStyle.Contents {
             get
         }
-
+        
         public static func colorMatrix(_: SwiftUICore_LiquidGlass._ColorMatrix, backdropAware: Swift.Bool, maxColorComponent: Swift.Float, preservesHue: Swift.Bool) -> ForegroundStyle
         public static func colorMatrix(_: SwiftUICore_LiquidGlass._ColorMatrix, backdropAware: Swift.Bool) -> ForegroundStyle
         public static func colorMatrix(_: SwiftUICore_LiquidGlass._ColorMatrix) -> ForegroundStyle
@@ -1496,18 +1500,18 @@ extension SwiftUICore_LiquidGlass.Material {
 extension SwiftUICore_LiquidGlass.Material {
     public struct Layers {
         public var layers: [Layer]
-
+        
         public init(_: [Layer])
-
+        
         public var singletonSDFLayer: Layer.SDFLayer? {
             get
         }
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: Layers, _: Layers) -> Swift.Bool
     }
 }
@@ -1518,9 +1522,9 @@ extension SwiftUICore_LiquidGlass.Material {
     public init<A>(statefulProvider: A) where A: SwiftUICore_LiquidGlass.StatefulMaterialProvider, A.Provider: SwiftUICore_LiquidGlass.Animatable
     public init<A>(statefulProvider: A) where A: SwiftUICore_LiquidGlass.StatefulMaterialProvider
     public init<A>(provider: A) where A: SwiftUICore_LiquidGlass.MaterialProvider
-
+    
     public func provider<A>(ofType: A.Type) -> A? where A: SwiftUICore_LiquidGlass.MaterialProvider
-
+    
     public static var vibrantGlassContent: SwiftUICore_LiquidGlass.Material {
         get
     }
@@ -1548,7 +1552,7 @@ extension SwiftUICore_LiquidGlass.Material {
     public static let quaternaryBackground: SwiftUICore_LiquidGlass.Material
     public static let tertiaryBackground: SwiftUICore_LiquidGlass.Material
     public static let secondaryBackground: SwiftUICore_LiquidGlass.Material
-
+    
     public static func _intelligenceLightSource(prefersAudioReactivity: Swift.Bool) -> SwiftUICore_LiquidGlass.Material
 }
 
@@ -1565,7 +1569,7 @@ public struct GlassEffectContainerModifier {
     public struct Init {    }
     public var config: SwiftUICore_LiquidGlass.GlassEffectConfiguration
     public var isEnabled: Swift.Bool
-
+    
     public static func _makeView(modifier: SwiftUICore_LiquidGlass._GraphValue<SwiftUICore_LiquidGlass.GlassEffectContainerModifier>, inputs: SwiftUICore_LiquidGlass._ViewInputs, body: (SwiftUICore_LiquidGlass._Graph, SwiftUICore_LiquidGlass._ViewInputs) -> SwiftUICore_LiquidGlass._ViewOutputs) -> SwiftUICore_LiquidGlass._ViewOutputs
 }
 
@@ -1590,7 +1594,7 @@ public class AnyHashableBox {
     public var anyValue: Swift.Hashable {
         get
     }
-
+    
     public func hash(into: inout Swift.Hasher)
     public func isEqual(to: SwiftUICore_LiquidGlass.AnyHashableBox) -> Swift.Bool
 }
@@ -1612,11 +1616,11 @@ public struct SDFShape {
     public var style: SwiftUICore_LiquidGlass.SDFStyle
     public var ovalization: Swift.Float
     public var backdropObserver: SwiftUICore_LiquidGlass.SDFShape.BackdropObserver?
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+    
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.SDFShape, _: SwiftUICore_LiquidGlass.SDFShape) -> Swift.Bool
 }
 
@@ -1630,9 +1634,9 @@ extension SwiftUICore_LiquidGlass.SDFShape: SwiftUICore_LiquidGlass.ProtobufDeco
 public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public struct Outputs {
         public let rawValue: Swift.UInt8
-
+        
         public init(rawValue: Swift.UInt8)
-
+        
         public static var focus: SwiftUICore_LiquidGlass.ViewGraph.Outputs {
             get
         }
@@ -1660,11 +1664,11 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
         public var _interval: Swift.Double
         public var _defaultIntervalWasRequested: Swift.Bool
         public var reasons: Swift.Set<Swift.UInt32>
-
+        
         public var interval: Swift.Double {
             get
         }
-
+        
         public func maxVelocity(_: CoreGraphics.CGFloat)
         public func at(_: SwiftUICore_LiquidGlass.Time)
         public func interval(_: Swift.Double, reason: Swift.UInt32?)
@@ -1683,13 +1687,14 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public var nextUpdate: (views: SwiftUICore_LiquidGlass.ViewGraph.NextUpdate, gestures: SwiftUICore_LiquidGlass.ViewGraph.NextUpdate)
     public weak var _preferenceBridge: SwiftUICore_LiquidGlass.PreferenceBridge?
     public var bridgedPreferences: [(SwiftUICore_LiquidGlass.PreferenceKey.Type, AnyAttribute)]
-
+    
     public init<A>(rootViewType: A.Type, requestedOutputs: SwiftUICore_LiquidGlass.ViewGraph.Outputs) where A: SwiftUICore_LiquidGlass.View
     public override init(data: SwiftUICore_LiquidGlass.GraphHost.Data)
     
     public var preferenceBridge: SwiftUICore_LiquidGlass.PreferenceBridge? {
         get
-
+    }
+    
     public override var parentHost: SwiftUICore_LiquidGlass.GraphHost? {
         get
     }
@@ -1701,10 +1706,12 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     }
     public var gesturePreferenceKeys: SwiftUICore_LiquidGlass.PreferenceKeys {
         get
-
+    }
+    
     public var transform: SwiftUICore_LiquidGlass.ViewTransform {
         get
-
+    }
+    
     public var proposedSize: SwiftUICore_LiquidGlass.ViewSize {
         get
     }
@@ -1734,7 +1741,8 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     }
     public var defaultLayoutComputer: SwiftUICore_LiquidGlass.LayoutComputer {
         get
-
+    }
+    
     public var responderNode: SwiftUICore_LiquidGlass.ResponderNode? {
         get
     }
@@ -1756,7 +1764,7 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public var rootGeometry: SwiftUICore_LiquidGlass.ViewGeometry {
         get
     }
-
+    
     public func observeWindowResizeProposal(_: SwiftUICore_LiquidGlass._ProposedSize)
     public func setPreferenceBridge(to: SwiftUICore_LiquidGlass.PreferenceBridge?, isInvalidating: Swift.Bool)
     public func removePreferenceOutlets(isInvalidating: Swift.Bool)
@@ -1791,7 +1799,7 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public override func isHiddenForReuseDidChange()
     public func windowDragGestureIsActive() -> Swift.Bool
     public func invalidatePreferenceBridge()
-
+    
     public func invalidateRootContainerShape()
     public func stopObservingWindowResizeProposal(_: SwiftUICore_LiquidGlass._ProposedSize)
     public func append<A>(feature: A) where A: SwiftUICore_LiquidGlass.ViewGraphFeature
@@ -1800,11 +1808,11 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public func tearDown()
     public func alignment(of: SwiftUICore_LiquidGlass.VerticalAlignment, at: CGSize) -> CoreGraphics.CGFloat
     public func alignment(of: SwiftUICore_LiquidGlass.HorizontalAlignment, at: CGSize) -> CoreGraphics.CGFloat
-
+    
     public subscript<A>(_: A.Type) -> Swift.UnsafeMutablePointer<A>? where A: SwiftUICore_LiquidGlass.ViewGraphFeature {
         get
     }
-
+    
     public static var current: SwiftUICore_LiquidGlass.ViewGraph {
         get
     }
@@ -1814,7 +1822,7 @@ public class ViewGraph: SwiftUICore_LiquidGlass.GraphHost {
     public static var eventGraphHost: SwiftUICore_LiquidGlass.EventGraphHost? {
         get
     }
-
+    
     public static func sizeThatFits(_: SwiftUICore_LiquidGlass._ProposedSize, layoutComputer: SwiftUICore_LiquidGlass.LayoutComputer?, insets: SwiftUICore_LiquidGlass.EdgeInsets) -> CGSize
 }
 
@@ -1824,7 +1832,7 @@ extension SwiftUICore_LiquidGlass.ViewGraph: SwiftUICore_LiquidGlass.ViewGraphRe
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public class AnimationListener {
     public init()
-
+    
     public func animationWasAdded()
     public func animationWasRemoved()
     public func finalizeTransaction()
@@ -1836,7 +1844,7 @@ public class PlatformGlassDefinition {
     }
     public static var uiKit: SwiftUICore_LiquidGlass.PlatformGlassDefinition.Type?
     public static var appKit: SwiftUICore_LiquidGlass.PlatformGlassDefinition.Type?
-
+    
     public static func resolvedGlass(_: SwiftUICore_LiquidGlass._Glass, environment: SwiftUICore_LiquidGlass.EnvironmentValues) -> SwiftUICore_LiquidGlass._Glass.Resolved?
     public static func setDefinition(_: SwiftUICore_LiquidGlass.PlatformGlassDefinition.Type, system: SwiftUICore_LiquidGlass.PlatformSystemDefinition)
     public static func for(system: SwiftUICore_LiquidGlass.PlatformSystemDefinition) -> SwiftUICore_LiquidGlass.PlatformGlassDefinition.Type?
@@ -1851,7 +1859,7 @@ public class PlatformGlassInteractionDefinition {
         get
     }
     public static var appKit: SwiftUICore_LiquidGlass.PlatformGlassInteractionDefinition.Type?
-
+    
     public static func resolvedInteraction(context: SwiftUICore_LiquidGlass.PlatformGlassInteractionContext) -> SwiftUICore_LiquidGlass.CoreInteractionRepresentable?
     public static func setDefinition(_: SwiftUICore_LiquidGlass.PlatformGlassInteractionDefinition.Type, system: SwiftUICore_LiquidGlass.PlatformSystemDefinition)
     public static func for(system: SwiftUICore_LiquidGlass.PlatformSystemDefinition) -> SwiftUICore_LiquidGlass.PlatformGlassInteractionDefinition.Type?
@@ -1861,7 +1869,7 @@ public class PlatformGlassInteractionDefinition {
 public struct SeedValues<A, B> where A: Swift.Hashable {
     public var base: [A : SwiftUICore_LiquidGlass.SeedValue<B>]
     public var seed: Swift.UInt32
-
+    
     public func incrementSeed()
     public func resetValue(for: A)
     public func value(for: A) -> B?
@@ -1879,7 +1887,7 @@ extension SwiftUICore_LiquidGlass.SeedValues where B: Swift.Hashable {
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.SeedValues {
     public func hash(into: inout Swift.Hasher) where B: Swift.Hashable
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.SeedValues<A, B>, _: SwiftUICore_LiquidGlass.SeedValues<A, B>) -> Swift.Bool where B: Swift.Equatable
 }
 
@@ -1894,62 +1902,64 @@ public struct GlassEffectContainerTintConfiguration {
     public struct Element {
         public var tags: SwiftUICore_LiquidGlass._ShapeSet.Tags
         public var color: ResolvedHDR
-
+        
         public init(tags: SwiftUICore_LiquidGlass._ShapeSet.Tags, color: ResolvedHDR)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration.Element, _: SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration.Element) -> Swift.Bool
     }
     public var elements: [SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration.Element]
-
+    
     public init()
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration, _: SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.GlassEffectContainerTintConfiguration: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public protocol CoreInteractionRepresentable where Self == Self.InteractionView.Content, Self.InteractionView: SwiftUICore_LiquidGlass.CoreInteractionView {
     associatedtype InteractionView
-
+    
     func appendInteractions(to: inout SwiftUICore_LiquidGlass.CoreInteractionRepresentableInteractionsProxy)
     func updateInteraction(_: Swift.AnyObject, tag: Swift.Int)
-
+    
     static func appendFeature(to: inout SwiftUICore_LiquidGlass.CoreInteractionRepresentableFeatureBufferProxy)
 }
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct _GraphInputs {
     public struct Phase {
         public var value: Swift.UInt32
-
+        
         public init(value: Swift.UInt32)
         public init()
-
+        
         public var isInserted: Swift.Bool {
             get
         }
         public var isBeingRemoved: Swift.Bool {
             get
-
+        }
+        
         public var resetSeed: Swift.UInt32 {
             get
-
+        }
+        
         public func merge(_: SwiftUICore_LiquidGlass._GraphInputs.Phase)
-
+        
         public static var invalid: SwiftUICore_LiquidGlass._GraphInputs.Phase {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._GraphInputs.Phase, _: SwiftUICore_LiquidGlass._GraphInputs.Phase) -> Swift.Bool
     }
     public struct Options {
         public let rawValue: Swift.UInt32
-
+        
         public init(rawValue: Swift.UInt32)
-
+        
         public static var doNotScrape: SwiftUICore_LiquidGlass._GraphInputs.Options {
             get
         }
@@ -1991,15 +2001,16 @@ public struct _GraphInputs {
     public var cachedEnvironment: SwiftUICore_LiquidGlass.MutableBox<SwiftUICore_LiquidGlass.CachedEnvironment>
     public var changedDebugProperties: SwiftUICore_LiquidGlass._ViewDebug.Properties
     public var options: SwiftUICore_LiquidGlass._GraphInputs.Options
-
+    
     public init(time: AttributeGraph.Attribute<SwiftUICore_LiquidGlass.Time>, phase: AttributeGraph.Attribute<SwiftUICore_LiquidGlass._GraphInputs.Phase>, environment: AttributeGraph.Attribute<SwiftUICore_LiquidGlass.EnvironmentValues>, transaction: AttributeGraph.Attribute<SwiftUICore_LiquidGlass.Transaction>)
-
+    
     public var needsStableDisplayListIDs: Swift.Bool {
         get
     }
     public var animationsDisabled: Swift.Bool {
         get
-
+    }
+    
     public func recordReusableInput<A>(_: A.Type) where A: SwiftUICore_LiquidGlass.GraphInput, A.Value: SwiftUICore_LiquidGlass.GraphReusable
     public func copyCaches()
     public func resetCaches()
@@ -2008,15 +2019,17 @@ public struct _GraphInputs {
     public func merge(_: SwiftUICore_LiquidGlass._GraphInputs, ignoringPhase: Swift.Bool)
     public func merge(_: SwiftUICore_LiquidGlass._GraphInputs)
     public func append<A, B>(_: B, to: A.Type) where A: SwiftUICore_LiquidGlass.GraphInput, B: SwiftUICore_LiquidGlass.GraphReusable, A.Value == SwiftUICore_LiquidGlass.Stack<B>
-
+    
     public func popLast<A, B>(_: A.Type) -> B? where A: SwiftUICore_LiquidGlass.GraphInput, A.Value == SwiftUICore_LiquidGlass.Stack<B>
-
+    
     public subscript<A>(_: A.Type) -> A.Value where A: SwiftUICore_LiquidGlass.GraphInput {
         get
-
+    }
+    
     public subscript<A>(_: A.Type) -> A.Value where A: SwiftUICore_LiquidGlass.GraphInput, A.Value: SwiftUICore_LiquidGlass.GraphReusable {
         get
-
+    }
+    
     public static var invalid: SwiftUICore_LiquidGlass._GraphInputs {
         get
     }
@@ -2215,97 +2228,126 @@ extension SwiftUICore_LiquidGlass._GraphInputs {
 extension SwiftUICore_LiquidGlass._GraphInputs {
     public var platformSystem: SwiftUICore_LiquidGlass.PlatformSystemDefinition {
         get
-
+    }
+    
     public var privacyReductionAccessibilityProvider: SwiftUICore_LiquidGlass.PrivacyReductionAccessibilityProvider.Type {
         get
-
+    }
+    
     public var coreInteractionResponderProvider: SwiftUICore_LiquidGlass.CoreInteractionResponderProvider.Type? {
         get
-
+    }
+    
     public var isDefaultStyleContext: Swift.Bool {
         get
     }
     public var opacityAccessibilityProvider: SwiftUICore_LiquidGlass.OpacityAccessibilityProvider.Type {
         get
-
+    }
+    
     public var hasWidgetMetadata: Swift.Bool {
         get
-
+    }
+    
     public var requestedTextRepresentation: SwiftUICore_LiquidGlass.PlatformTextRepresentable.Type? {
         get
-
+    }
+    
     public var imageAccessibilityProvider: SwiftUICore_LiquidGlass.ImageAccessibilityProvider.Type {
         get
-
+    }
+    
     public var scrollTargetRemovePreference: Swift.Bool {
         get
-
+    }
+    
     public var requestedHiddenRepresentation: SwiftUICore_LiquidGlass.PlatformHiddenRepresentable.Type? {
         get
-
+    }
+    
     public var isInLazyContainer: Swift.Bool {
         get
-
+    }
+    
     public var needsDynamicLayout: Swift.Bool {
         get
-
+    }
+    
     public var requestedLeafContentType: Swift.Bool {
         get
-
+    }
+    
     public var layoutAccessibilityProvider: SwiftUICore_LiquidGlass.LayoutAccessibilityProvider.Type {
         get
-
+    }
+    
     public var allowsSolariumInCompatibilityApps: Swift.Bool {
         get
-
+    }
+    
     public var textSelectionRepresentation: SwiftUICore_LiquidGlass.PlatformTextSelectionRepresentation.Type? {
         get
-
+    }
+    
     public var requestedImageRepresentation: SwiftUICore_LiquidGlass.PlatformImageRepresentable.Type? {
         get
-
+    }
+    
     public var textAlwaysOnProvider: SwiftUICore_LiquidGlass.TextAlwaysOnProvider.Type? {
         get
-
+    }
+    
     public var needsAccessibility: Swift.Bool {
         get
-
+    }
+    
     public var requestedNamedImageRepresentation: SwiftUICore_LiquidGlass.PlatformNamedImageRepresentable.Type? {
         get
-
+    }
+    
     public var viewGraphHostIdiom: SwiftUICore_LiquidGlass.ViewGraphHost.Idiom? {
         get
-
+    }
+    
     public var textAccessibilityProvider: SwiftUICore_LiquidGlass.TextAccessibilityProvider.Type {
         get
-
+    }
+    
     public var interfaceIdiom: SwiftUICore_LiquidGlass.AnyInterfaceIdiom {
         get
     }
     public var gestureAccessibilityProvider: SwiftUICore_LiquidGlass.GestureAccessibilityProvider.Type {
         get
-
+    }
+    
     public var contentShapeAccessibilityProvider: SwiftUICore_LiquidGlass.ContentShapeAccessibilityProvider.Type {
         get
-
+    }
+    
     public var disableNavigationDestination: Swift.Bool {
         get
-
+    }
+    
     public var requestedSpacerRepresentation: SwiftUICore_LiquidGlass.PlatformSpacerRepresentable.Type? {
         get
-
+    }
+    
     public var updateCycleUseSetNeedsLayout: Swift.Bool {
         get
-
+    }
+    
     public var platformProvidersDefinition: SwiftUICore_LiquidGlass.CorePlatformProvidersDefinition.Type {
         get
-
+    }
+    
     public var hiddenAccessibilityProvider: SwiftUICore_LiquidGlass.HiddenAccessibilityProvider.Type? {
         get
-
+    }
+    
     public var allowsHitTestingAccessibilityProvider: SwiftUICore_LiquidGlass.AllowsHitTestingAccessibilityProvider.Type {
         get
-
+    }
+    
     public func pushScope<A>(id: A) where A: SwiftUICore_LiquidGlass.StronglyHashable
     public func setCurrentStyleableView<A>(_: A.Type) where A: SwiftUICore_LiquidGlass.StyleableView
     public func reuseCustomInputs(by: SwiftUICore_LiquidGlass._GraphInputs, indirectMap: SwiftUICore_LiquidGlass.IndirectAttributeMap, testOnly: Swift.Bool) -> Swift.Bool
@@ -2331,7 +2373,7 @@ extension SwiftUICore_LiquidGlass._GraphInputs {
     public func enableLegacyScrollEdgeEffectTag()
     public func intern<A>(_: A, id: SwiftUICore_LiquidGlass.GraphHost.ConstantID) -> AttributeGraph.Attribute<A>
     public func accepts<each A>(_: repeat A) -> Swift.Bool where A: SwiftUICore_LiquidGlass.StyleContext
-
+    
     public static var defaultInterfaceIdiom: SwiftUICore_LiquidGlass.AnyInterfaceIdiom {
         get
     }
@@ -2347,29 +2389,29 @@ public struct PathSet {
         public var tags: SwiftUICore_LiquidGlass._ShapeSet.Tags
         public var operation: SwiftUICore_LiquidGlass._ShapeSet.Operation
         public var options: SwiftUICore_LiquidGlass._ShapeSet.Element.Options
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.PathSet.Element, _: SwiftUICore_LiquidGlass.PathSet.Element) -> Swift.Bool
     }
     public var elements: [SwiftUICore_LiquidGlass.PathSet.Element]
     public var smoothness: CoreGraphics.CGFloat
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
     public init(elements: [SwiftUICore_LiquidGlass.PathSet.Element], smoothness: CoreGraphics.CGFloat)
     public init(_: SwiftUICore_LiquidGlass.Path, smoothness: CoreGraphics.CGFloat)
-
+    
     public func drawSDF(in: inout SwiftUICore_LiquidGlass.GraphicsContext, distanceRange: Swift.ClosedRange<CoreGraphics.CGFloat>, gradient: SwiftUICore_LiquidGlass.SDFGradient, ovalization: Swift.Float)
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.PathSet, _: SwiftUICore_LiquidGlass.PathSet) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.PathSet: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2385,31 +2427,31 @@ public enum GraphicsFilter {
     public struct DisplacementMap {
         public var amount: CoreGraphics.CGFloat
         public var mask: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.DisplacementMap, _: SwiftUICore_LiquidGlass.GraphicsFilter.DisplacementMap) -> Swift.Bool
     }
     public struct ColorMonochrome {
         public var color: ResolvedHDR
         public var amount: Swift.Float
         public var bias: Swift.Float
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(color: ResolvedHDR, amount: Swift.Float, bias: Swift.Float)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.ColorMonochrome, _: SwiftUICore_LiquidGlass.GraphicsFilter.ColorMonochrome) -> Swift.Bool
     }
     public struct VibrantColorMatrix {
         public struct Options {
             public let rawValue: Swift.UInt8
-
+            
             public init(rawValue: Swift.UInt8)
-
+            
             public static var preservesHue: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix.Options {
                 get
             }
@@ -2420,31 +2462,31 @@ public enum GraphicsFilter {
         public var matrix: SwiftUICore_LiquidGlass._ColorMatrix
         public var maxColorComponent: Swift.Float
         public var options: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix.Options
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(_: SwiftUICore_LiquidGlass._ColorMatrix, maxColorComponent: Swift.Float, options: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix.Options)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix, _: SwiftUICore_LiquidGlass.GraphicsFilter.VibrantColorMatrix) -> Swift.Bool
     }
     public struct Curve {
         public var values: (Swift.Float, Swift.Float, Swift.Float, Swift.Float)
-
+        
         public init(_: (Swift.Float, Swift.Float, Swift.Float, Swift.Float))
         public init(_: Swift.SIMD4<Swift.Float>)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.Curve, _: SwiftUICore_LiquidGlass.GraphicsFilter.Curve) -> Swift.Bool
     }
     public struct LuminanceCurve {
         public var curve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve
         public var amount: Swift.Float
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(curve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve, amount: Swift.Float)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.LuminanceCurve, _: SwiftUICore_LiquidGlass.GraphicsFilter.LuminanceCurve) -> Swift.Bool
     }
     public struct ColorCurves {
@@ -2452,33 +2494,33 @@ public enum GraphicsFilter {
         public var greenCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve
         public var blueCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve
         public var opacityCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(redCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve, greenCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve, blueCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve, opacityCurve: SwiftUICore_LiquidGlass.GraphicsFilter.Curve)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.ColorCurves, _: SwiftUICore_LiquidGlass.GraphicsFilter.ColorCurves) -> Swift.Bool
     }
     public struct ShaderFilter {
         public var shader: SwiftUICore_LiquidGlass.Shader.ResolvedShader
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(shader: SwiftUICore_LiquidGlass.Shader.ResolvedShader, size: __C.CGSize)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.ShaderFilter, _: SwiftUICore_LiquidGlass.GraphicsFilter.ShaderFilter) -> Swift.Bool
     }
     public struct AlphaThreshold {
         public var color: ResolvedHDR
         public var amount: Swift.Float
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(color: ResolvedHDR, amount: Swift.Float)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.AlphaThreshold, _: SwiftUICore_LiquidGlass.GraphicsFilter.AlphaThreshold) -> Swift.Bool
     }
     public struct EDRGainMultiply {
@@ -2486,22 +2528,22 @@ public enum GraphicsFilter {
         public var scale: Swift.Float
         public var isAdaptive: Swift.Bool
         public var allowsGroup: Swift.Bool
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(amount: Swift.Float, scale: Swift.Float, isAdaptive: Swift.Bool, allowsGroup: Swift.Bool)
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.EDRGainMultiply, _: SwiftUICore_LiquidGlass.GraphicsFilter.EDRGainMultiply) -> Swift.Bool
     }
     public struct GlassBackgroundStyle {
         public var margin: CoreGraphics.CGFloat
         public var mask: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter.GlassBackgroundStyle, _: SwiftUICore_LiquidGlass.GraphicsFilter.GlassBackgroundStyle) -> Swift.Bool
     }
     case blur(SwiftUICore_LiquidGlass.BlurStyle)
@@ -2530,22 +2572,22 @@ public enum GraphicsFilter {
     case averageColor
     case luminanceToAlpha
     case colorInvert
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+    
     public var changesDOD: Swift.Bool {
         get
     }
     public var isIdentity: Swift.Bool {
         get
     }
-
+    
     public func print(into: inout SwiftUICore_LiquidGlass.SExpPrinter)
     public func makeCAFilter() -> __C.CAFilter?
     public func effectValue(size: __C.CGSize) -> SwiftUICore_LiquidGlass.DisplayList.Effect
     public func domainOfDefinition(for: __C.CGRect) -> __C.CGRect
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.GraphicsFilter, _: SwiftUICore_LiquidGlass.GraphicsFilter) -> Swift.Bool
 }
 
@@ -2573,7 +2615,7 @@ extension SwiftUICore_LiquidGlass.GraphicsFilter: SwiftUICore_LiquidGlass.ViewMo
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.GraphicsFilter: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2587,24 +2629,25 @@ public struct BlurStyle {
     public var radius: CoreGraphics.CGFloat
     public var isOpaque: Swift.Bool
     public var dither: Swift.Bool
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
     public init(radius: CoreGraphics.CGFloat, isOpaque: Swift.Bool, dither: Swift.Bool, hardEdges: Swift.Bool)
-
+    
     public var isIdentity: Swift.Bool {
         get
     }
     public var animatableData: CoreGraphics.CGFloat {
         get
-
+    }
+    
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder)
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.BlurStyle, _: SwiftUICore_LiquidGlass.BlurStyle) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.BlurStyle: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2624,40 +2667,42 @@ public struct VariableBlurStyle {
         case image(SwiftUICore_LiquidGlass.GraphicsImage)
         case layerIndex(Swift.UInt)
         case none
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func setCAFilterInput(of: __C.CAFilter)
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask, _: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask) -> Swift.Bool
     }
     public var radius: CoreGraphics.CGFloat
     public var isOpaque: Swift.Bool
     public var dither: Swift.Bool
     public var mask: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
     public init(radius: CoreGraphics.CGFloat, isOpaque: Swift.Bool, dither: Swift.Bool, mask: SwiftUICore_LiquidGlass.VariableBlurStyle.Mask)
-
+    
     public var animatableData: CoreGraphics.CGFloat {
         get
-
+    }
+    
     public var isIdentity: Swift.Bool {
         get
     }
     public var caFilterRadius: CoreGraphics.CGFloat {
         get
-
+    }
+    
     public func effectValue(size: __C.CGSize) -> SwiftUICore_LiquidGlass.DisplayList.Effect
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.VariableBlurStyle, _: SwiftUICore_LiquidGlass.VariableBlurStyle) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.VariableBlurStyle: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2699,7 +2744,7 @@ public protocol CAFilterProvider: Swift.Equatable {
     var sdfBackdropMargin: CoreGraphics.CGFloat {
         get
     }
-
+    
     func resolve<Self>(in: A1) -> Swift.AnyObject where A1: SwiftUICore_LiquidGlass.CAFilterContext
 }
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2719,13 +2764,13 @@ extension SwiftUICore_LiquidGlass.CAFilterProvider {
 public struct ProtobufDecoder {
     public enum DecodingError {
         case failed
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.ProtobufDecoder.DecodingError, _: SwiftUICore_LiquidGlass.ProtobufDecoder.DecodingError) -> Swift.Bool
     }
     public var ptr: Swift.UnsafeRawPointer
@@ -2734,16 +2779,16 @@ public struct ProtobufDecoder {
     public var packedEnd: Swift.UnsafeRawPointer
     public var stack: [Swift.UnsafeRawPointer]
     public var userInfo: [Swift.CodingUserInfoKey : Any]
-
+    
     public init(_: Foundation.Data)
-
+    
     public var archiveReader: SwiftUICore_LiquidGlass.ArchiveReader? {
         get
     }
     public var preferredBundleLanguage: Swift.String? {
         get
     }
-
+    
     public func value<A>(fromBinaryPlist: Foundation.Data, type: A.Type) throws -> A where A: Swift.Decodable
     public func value<A>(fromBinaryPlist: Foundation.Data, type: A.Type, configuration: A.DecodingConfiguration) throws -> A where A: Foundation.DecodableWithConfiguration
     public func decodeVarint() throws -> Swift.UInt
@@ -2779,13 +2824,13 @@ public struct ProtobufDecoder {
 public struct ProtobufEncoder {
     public enum EncodingError {
         case failed
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.ProtobufEncoder.EncodingError, _: SwiftUICore_LiquidGlass.ProtobufEncoder.EncodingError) -> Swift.Bool
     }
     public var buffer: Swift.UnsafeMutableRawPointer?
@@ -2793,7 +2838,7 @@ public struct ProtobufEncoder {
     public var capacity: Swift.Int
     public var stack: [Swift.Int]
     public var userInfo: [Swift.CodingUserInfoKey : Any]
-
+    
     public var preferredBundleLanguage: Swift.String? {
         get
     }
@@ -2806,7 +2851,7 @@ public struct ProtobufEncoder {
     public var archiveHost: SwiftUICore_LiquidGlass.AnyArchivedViewHost? {
         get
     }
-
+    
     public func uintField(_: Swift.UInt, _: Swift.UInt, defaultValue: Swift.UInt?)
     public func intField(_: Swift.UInt, _: Swift.Int, defaultValue: Swift.Int?)
     public func encodeData(_: Swift.UnsafeRawBufferPointer)
@@ -2858,7 +2903,7 @@ public struct ProtobufEncoder {
     public func codableWithConfigurationField<A, B>(_: A, _: B, configuration: B.EncodableWithConfiguration.EncodingConfiguration, defaultValue: B) throws where A: SwiftUICore_LiquidGlass.ProtobufTag, B: Foundation.EncodableWithConfiguration, B: Swift.Equatable
     public func codableWithConfigurationField<A>(_: Swift.UInt, _: A, configuration: A.EncodingConfiguration) throws where A: Foundation.EncodableWithConfiguration
     public func codableWithConfigurationField<A, B>(_: A, _: B, configuration: B.EncodingConfiguration) throws where A: SwiftUICore_LiquidGlass.ProtobufTag, B: Foundation.EncodableWithConfiguration
-
+    
     public func boolField(_: Swift.UInt, _: Swift.Bool, defaultValue: Swift.Bool?)
     public func boolField<A>(_: A, _: Swift.Bool, defaultValue: Swift.Bool?) where A: SwiftUICore_LiquidGlass.ProtobufTag
     public func dataField(_: Swift.UInt, _: Foundation.Data)
@@ -2869,7 +2914,7 @@ public struct ProtobufEncoder {
     public func enumField<A, B>(_: A, _: B, defaultValue: B?) where A: SwiftUICore_LiquidGlass.ProtobufTag, B: Swift.Equatable, B: SwiftUICore_LiquidGlass.ProtobufEnum
     public func enumField<A>(_: Swift.UInt, _: A) where A: SwiftUICore_LiquidGlass.ProtobufEnum
     public func enumField<A, B>(_: A, _: B) where A: SwiftUICore_LiquidGlass.ProtobufTag, B: SwiftUICore_LiquidGlass.ProtobufEnum
-
+    
     public static func encoding<A>(_: A) throws -> Foundation.Data where A: SwiftUICore_LiquidGlass.ProtobufEncodableMessage
     public static func encoding(_: (_: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws -> ()) throws -> Foundation.Data
 }
@@ -2879,29 +2924,29 @@ public enum SDFStyle {
     public struct OutputSDF {
         public var inset: CoreGraphics.CGFloat
         public var range: Swift.ClosedRange<CoreGraphics.CGFloat>
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     }
     public struct Mask {
         public var content: SwiftUICore_LiquidGlass.SDFStyle
         public var mask: SwiftUICore_LiquidGlass.SDFStyle
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     }
     public struct Group {
         public var type: Layer.SDFLayer.GroupType
         public var elements: [Layer.SDFLayer.GroupLayer]
         public var filters: [SwiftUICore_LiquidGlass.GraphicsFilter]
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public var margin: CoreGraphics.CGFloat {
             get
         }
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.SDFStyle.Group, _: SwiftUICore_LiquidGlass.SDFStyle.Group) -> Swift.Bool
         public static func drawElements(_: [Layer.SDFLayer.GroupLayer], in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
     }
@@ -2914,7 +2959,7 @@ public enum SDFStyle {
         public var spread: SwiftUICore_LiquidGlass.Angle
         public var amount: CoreGraphics.CGFloat
         public var appliesDisplayAngle: Swift.Bool
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
@@ -2924,7 +2969,7 @@ public enum SDFStyle {
         public var curvature: CoreGraphics.CGFloat
         public var angle: SwiftUICore_LiquidGlass.Angle
         public var maskInset: CoreGraphics.CGFloat
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
@@ -2937,7 +2982,7 @@ public enum SDFStyle {
         public var radius: CoreGraphics.CGFloat
         public var knockout: Swift.Bool
         public var inverted: Swift.Bool
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
@@ -2945,7 +2990,7 @@ public enum SDFStyle {
         public var colors: [ResolvedHDR]
         public var distances: [CoreGraphics.CGFloat]
         public var interpolations: [Swift.SIMD4<Swift.Float>]
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
@@ -2953,14 +2998,14 @@ public enum SDFStyle {
         public var inset: CoreGraphics.CGFloat
         public var lineWidth: CoreGraphics.CGFloat
         public var color: ResolvedHDR
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
     public struct Fill {
         public var inset: CoreGraphics.CGFloat
         public var color: ResolvedHDR
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: SwiftUICore_LiquidGlass.SDF)
     }
@@ -2975,25 +3020,25 @@ public enum SDFStyle {
     indirect case group(SwiftUICore_LiquidGlass.SDFStyle.Group)
     indirect case mask(SwiftUICore_LiquidGlass.SDFStyle.Mask)
     indirect case outputSDF(SwiftUICore_LiquidGlass.SDFStyle.OutputSDF)
-
+    
     public var distanceRange: Swift.ClosedRange<CoreGraphics.CGFloat>? {
         get
     }
     public var needsDistanceGradient: Swift.Bool {
         get
     }
-
+    
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
-
+    
     public static let defaultContentGroup: SwiftUICore_LiquidGlass.SDFStyle
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.SDFStyle, _: SwiftUICore_LiquidGlass.SDFStyle) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.SDFStyle: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3010,24 +3055,24 @@ public struct _ShapeSet {
     public enum Operation {
         case union
         case subtraction
-
+        
         public init?(protobufValue: Swift.UInt)
-
+        
         public var protobufValue: Swift.UInt {
             get
         }
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._ShapeSet.Operation, _: SwiftUICore_LiquidGlass._ShapeSet.Operation) -> Swift.Bool
     }
     public struct Filter {
         public var mask: SwiftUICore_LiquidGlass._ShapeSet.Tags
         public var value: SwiftUICore_LiquidGlass._ShapeSet.Tags
-
+        
         public static func == (_: SwiftUICore_LiquidGlass._ShapeSet.Filter, _: SwiftUICore_LiquidGlass._ShapeSet.Filter) -> Swift.Bool
     }
     public struct Element {
@@ -3039,7 +3084,7 @@ public struct _ShapeSet {
         public var tags: SwiftUICore_LiquidGlass._ShapeSet.Tags
         public var operation: SwiftUICore_LiquidGlass._ShapeSet.Operation
         public var options: SwiftUICore_LiquidGlass._ShapeSet.Element.Options
-
+        
         public init<A>(_: A, id: Swift.Int?, tags: SwiftUICore_LiquidGlass._ShapeSet.Tags, operation: SwiftUICore_LiquidGlass._ShapeSet.Operation) where A: SwiftUICore_LiquidGlass.Shape
         public init<A>(_: A, tags: SwiftUICore_LiquidGlass._ShapeSet.Tags, operation: SwiftUICore_LiquidGlass._ShapeSet.Operation) where A: SwiftUICore_LiquidGlass.Shape
         public init<A>(_: A, tags: SwiftUICore_LiquidGlass._ShapeSet.Tags) where A: SwiftUICore_LiquidGlass.Shape
@@ -3048,21 +3093,23 @@ public struct _ShapeSet {
         public struct Init {
         }
         public var base: SwiftUICore_LiquidGlass._ShapeSet
-
+        
         public var animatableData: SwiftUICore_LiquidGlass.AnimatablePair<SwiftUICore_LiquidGlass.KeyedAnimatableArray<Swift.Int, SwiftUICore_LiquidGlass._AnyAnimatableData>, CoreGraphics.CGFloat> {
             get
-
+        }
+        
         public func pathSet(in: __C.CGSize) -> SwiftUICore_LiquidGlass.PathSet
     }
     public var elements: [SwiftUICore_LiquidGlass._ShapeSet.Element]
     public var smoothness: CoreGraphics.CGFloat
-
+    
     public init(shapes: [SwiftUICore_LiquidGlass.AnyShape], smoothness: CoreGraphics.CGFloat)
     public init(elements: [SwiftUICore_LiquidGlass._ShapeSet.Element], smoothness: CoreGraphics.CGFloat)
-
+    
     public var shapes: [SwiftUICore_LiquidGlass.AnyShape] {
         get
-
+    }
+    
     public func fill<A>(_: A) -> SwiftUICore_LiquidGlass._ShapeSetView<A> where A: SwiftUICore_LiquidGlass.ShapeStyle
 }
 
@@ -3086,17 +3133,17 @@ public struct SDF {
 public struct BackdropEffect {
     public var scale: Swift.Float
     public var filters: [SwiftUICore_LiquidGlass.GraphicsFilter]
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+    
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.BackdropEffect, _: SwiftUICore_LiquidGlass.BackdropEffect) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.BackdropEffect: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3109,15 +3156,15 @@ extension SwiftUICore_LiquidGlass.BackdropEffect: SwiftUICore_LiquidGlass.Protob
 public enum GraphicsBlendMode {
     case blendMode(SwiftUICore_LiquidGlass.GraphicsContext.BlendMode)
     case caFilter(Swift.AnyObject)
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
     public init(_: SwiftUICore_LiquidGlass.BlendMode)
-
+    
     public func effectValue(size: __C.CGSize) -> SwiftUICore_LiquidGlass.DisplayList.Effect
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+    
     public static let normal: SwiftUICore_LiquidGlass.GraphicsBlendMode
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.GraphicsBlendMode, _: SwiftUICore_LiquidGlass.GraphicsBlendMode) -> Swift.Bool
 }
 
@@ -3145,7 +3192,7 @@ extension SwiftUICore_LiquidGlass.GraphicsBlendMode: SwiftUICore_LiquidGlass.Vie
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.GraphicsBlendMode: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3174,7 +3221,7 @@ extension SwiftUICore_LiquidGlass.MaterialProvider {
 extension SwiftUICore_LiquidGlass.MaterialProvider {
     public func resolveBackgroundStyle(level: Swift.Int, in: Context) -> ForegroundStyle?
     public func resolveAdaptiveColor(_: ResolvedHDR, in: Context) -> ForegroundStyle
-
+    
     public func resolveForegroundStyle(level: Swift.Int, in: Context) -> ForegroundStyle?
 }
 
@@ -3184,7 +3231,7 @@ extension SwiftUICore_LiquidGlass.MaterialProvider {
     public func applyBackgroundStyle(to: inout SwiftUICore_LiquidGlass._ShapeStyle_Shape) -> Swift.Bool
     public func apply(color: SwiftUICore_LiquidGlass.Color, to: inout SwiftUICore_LiquidGlass._ShapeStyle_Shape)
     public func resolveAdaptiveColor(_: ResolvedHDR, in: Context) -> ForegroundStyle
-
+    
     public func resolveBackgroundStyle(level: Swift.Int, in: Context) -> ForegroundStyle?
     public func resolveForegroundStyle(level: Swift.Int, in: Context) -> ForegroundStyle?
 }
@@ -3193,10 +3240,10 @@ extension SwiftUICore_LiquidGlass.MaterialProvider {
 public protocol StatefulMaterialProvider: Swift.Hashable where Self.Provider: SwiftUICore_LiquidGlass.MaterialProvider, Self.State: Swift.Equatable {
     associatedtype State
     associatedtype Provider
-
+    
     func updateState(_: inout Self.State, in: inout StatefulContext)
     func resolveProvider(_: Self.State) -> Self.Provider
-
+    
     static var initialState: Self.State {
         get
     }
@@ -3238,37 +3285,44 @@ public class GraphHost {
         public var isRemoved: Swift.Bool
         public var isHiddenForReuse: Swift.Bool
         public var inputs: SwiftUICore_LiquidGlass._GraphInputs
-
+        
         public init()
-
+        
         public var transaction: SwiftUICore_LiquidGlass.Transaction {
             get
-
+        }
+        
         public var environment: SwiftUICore_LiquidGlass.EnvironmentValues {
             get
-
+        }
+        
         public var hostPreferenceKeys: SwiftUICore_LiquidGlass.PreferenceKeys {
             get
-
+        }
+        
         public var phase: SwiftUICore_LiquidGlass._GraphInputs.Phase {
             get
-
+        }
+        
         public var transactionSeed: Swift.UInt32 {
             get
-
+        }
+        
         public var time: SwiftUICore_LiquidGlass.Time {
             get
-
+        }
+        
         public var updateSeed: Swift.UInt32 {
             get
-
+        }
+        
         public func invalidate()
     }
     public struct RemovedState {
         public let rawValue: Swift.UInt8
-
+        
         public init(rawValue: Swift.UInt8)
-
+        
         public static var unattached: SwiftUICore_LiquidGlass.GraphHost.RemovedState {
             get
         }
@@ -3284,9 +3338,9 @@ public class GraphHost {
         case failedValue
         case placeholder
         case preferenceKeyDefault
-
+        
         public init?(rawValue: Swift.Int8)
-
+        
         public var rawValue: Swift.Int8 {
             get
         }
@@ -3299,9 +3353,9 @@ public class GraphHost {
     public var continuations: [SwiftUICore_LiquidGlass.GraphMutation]
     public var mayDeferUpdate: Swift.Bool
     public var removedState: SwiftUICore_LiquidGlass.GraphHost.RemovedState
-
+    
     public init(data: SwiftUICore_LiquidGlass.GraphHost.Data)
-
+    
     public var environment: SwiftUICore_LiquidGlass.EnvironmentValues {
         get
     }
@@ -3329,7 +3383,7 @@ public class GraphHost {
     public var hasPendingTransactions: Swift.Bool {
         get
     }
-
+    
     public func hostKind() -> SwiftUICore_LiquidGlass.CustomEventTrace.InstantiationEventType.Kind
     public func isHiddenForReuseDidChange()
     public func instantiateOutputs()
@@ -3338,7 +3392,7 @@ public class GraphHost {
     public func addPreference<A>(_: A.Type) where A: SwiftUICore_LiquidGlass.HostPreferenceKey
     public func invalidate()
     public func instantiate()
-
+    
     public func uninstantiate(immediately: Swift.Bool)
     public func uninstantiate()
     public func incrementPhase()
@@ -3367,7 +3421,7 @@ public class GraphHost {
     public func intern<A>(_: A, for: Any.Type, id: SwiftUICore_LiquidGlass.GraphHost.ConstantID) -> AttributeGraph.Attribute<A>
     public func setTime(_: SwiftUICore_LiquidGlass.Time)
     public func setPhase(_: SwiftUICore_LiquidGlass._GraphInputs.Phase)
-
+    
     public static var currentHost: SwiftUICore_LiquidGlass.GraphHost {
         get
     }
@@ -3375,27 +3429,27 @@ public class GraphHost {
         get
     }
     public static let pendingGlobalTransactions: [SwiftUICore_LiquidGlass.GlobalTransaction]
-
+    
     public static func globalTransaction<A>(_: SwiftUICore_LiquidGlass.Transaction, id: SwiftUICore_LiquidGlass.Transaction.ID, mutation: A, hostProvider: SwiftUICore_LiquidGlass.TransactionHostProvider) where A: SwiftUICore_LiquidGlass.GraphMutation
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.GraphHost: Swift.CustomReflectable {
-
+    
 }
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct Time {
     public var seconds: Swift.Double
-
+    
     public init(seconds: Swift.Double)
     public init()
-
+    
     public var hashValue: Swift.Int {
         get
     }
-
+    
     public func hash(into: inout Swift.Hasher)
-
+    
     public static var zero: SwiftUICore_LiquidGlass.Time {
         get
     }
@@ -3405,7 +3459,7 @@ public struct Time {
     public static var systemUptime: SwiftUICore_LiquidGlass.Time {
         get
     }
-
+    
     public static func / (_: SwiftUICore_LiquidGlass.Time, _: Swift.Double) -> SwiftUICore_LiquidGlass.Time
     public static func < (_: SwiftUICore_LiquidGlass.Time, _: SwiftUICore_LiquidGlass.Time) -> Swift.Bool
     public static func * (_: SwiftUICore_LiquidGlass.Time, _: Swift.Double) -> SwiftUICore_LiquidGlass.Time
@@ -3423,18 +3477,18 @@ public struct Time {
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.Time: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.Time: Swift.Hashable {
-
+    
     public func _rawHashValue(seed: Swift.Int) -> Swift.Int
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.Time: Swift.Comparable {
-
+    
     public static func <= (_: Self, _: Self) -> Swift.Bool
     public static func >= (_: Self, _: Self) -> Swift.Bool
     public static func > (_: Self, _: Self) -> Swift.Bool
@@ -3467,7 +3521,7 @@ public struct ViewGraphFeatureBuffer {
         public override static var type: Any.Type {
             get
         }
-
+        
         public override static func moveInitialize(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element, from: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element)
         public override static func deinitialize(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element)
         public override static func modifyViewInputs(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element, inputs: inout SwiftUICore_LiquidGlass._ViewInputs, graph: SwiftUICore_LiquidGlass.ViewGraph)
@@ -3483,17 +3537,17 @@ public struct ViewGraphFeatureBuffer {
         public var base: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element
     }
     public var contents: SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer
-
+    
     public var featureTypes: [Any.Type] {
         get
     }
     public var debugDescription: Swift.String {
         get
     }
-
+    
     public func append<A>(_: A) -> SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer.Index where A: SwiftUICore_LiquidGlass.ViewGraphFeature
     public func index(after: SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer.Index) -> SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer.Index
-
+    
     public subscript<A>(_: A.Type) -> Swift.UnsafeMutablePointer<A>? where A: SwiftUICore_LiquidGlass.ViewGraphFeature {
         get
     }
@@ -3503,11 +3557,11 @@ public struct ViewGraphFeatureBuffer {
 extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Sequence {
     public typealias Element = SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer.Element
     public typealias Iterator = Swift.IndexingIterator<SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer>
-
+    
     public var underestimatedCount: Swift.Int {
         get
     }
-
+    
     public func makeIterator() -> Self.Iterator
     public func _customContainsEquatableElement(_: Self.Element) -> Swift.Bool?
     public func _copyToContiguousArray() -> Swift.ContiguousArray<Self.Element>
@@ -3519,14 +3573,14 @@ extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Sequence {
 extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Collection {
     public typealias Element = SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer.Element
     public typealias Index = SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer.Index
-
+    
     public typealias SubSequence = Swift.Slice<SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer>
     public typealias Indices = Swift.DefaultIndices<SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer>
-
+    
     public var isEmpty: Swift.Bool {
         get
     }
-
+    
     public var startIndex: Self.Index {
         get
     }
@@ -3536,7 +3590,7 @@ extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Collection {
     public var indices: Self.Indices {
         get
     }
-
+    
     public func _customLastIndexOfEquatableElement(_: Self.Element) -> Self.Index??
     public func _customIndexOfEquatableElement(_: Self.Element) -> Self.Index??
     public func index(_: Self.Index, offsetBy: Swift.Int) -> Self.Index
@@ -3547,7 +3601,7 @@ extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Collection {
     public func _failEarlyRangeCheck(_: Swift.Range<Self.Index>, bounds: Swift.Range<Self.Index>)
     public func index(after: Self.Index) -> Self.Index
     public func formIndex(after: inout Self.Index)
-
+    
     public subscript(_: Swift.Range<Self.Index>) -> Self.SubSequence {
         get
     }
@@ -3555,7 +3609,7 @@ extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.Collection {
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.ViewGraphFeatureBuffer: Swift.CustomDebugStringConvertible {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3575,13 +3629,13 @@ public struct ViewGraphGeometryObservers<A> where A: SwiftUICore_LiquidGlass.Vie
         }
         public var storage: SwiftUICore_LiquidGlass.ViewGraphGeometryObservers<A>.Observer.Storage
         public let callback: (A.ViewGraphGeometryMeasurer.Size, A.ViewGraphGeometryMeasurer.Size) -> ()
-
+        
         public init(callback: (A.Size, A.Size) -> ())
-
+        
         public func reset() -> Swift.Bool
     }
     public var store: [A.ViewGraphGeometryMeasurer.Proposal : SwiftUICore_LiquidGlass.ViewGraphGeometryObservers<A>.Observer]
-
+    
     public func addObserver(for: A.Proposal, exclusive: Swift.Bool, callback: (A.Size, A.Size) -> ())
     public func resetObserver(for: A.Proposal) -> Swift.Bool
     public func stopObserving(proposal: A.Proposal)
@@ -3589,7 +3643,7 @@ public struct ViewGraphGeometryObservers<A> where A: SwiftUICore_LiquidGlass.Vie
 }
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct SizeThatFitsMeasurer {
-
+    
     public static func measure(given: SwiftUICore_LiquidGlass._ProposedSize, in: SwiftUICore_LiquidGlass.ViewGraph) -> __C.CGSize
     public static func measure(proposal: SwiftUICore_LiquidGlass._ProposedSize, layoutComputer: SwiftUICore_LiquidGlass.LayoutComputer, insets: SwiftUICore_LiquidGlass.EdgeInsets) -> __C.CGSize
 }
@@ -3611,9 +3665,9 @@ public class PreferenceBridge {
     public var requestedPreferences: SwiftUICore_LiquidGlass.PreferenceKeys
     public var bridgedViewInputs: SwiftUICore_LiquidGlass.PropertyList
     public var bridgedPreferences: [SwiftUICore_LiquidGlass.PreferenceBridge.BridgedPreference]
-
+    
     public init()
-
+    
     public func invalidate()
     public func wrapInputs(_: inout SwiftUICore_LiquidGlass._ViewInputs)
     public func removeChild(_: SwiftUICore_LiquidGlass.ViewGraph)
@@ -3631,9 +3685,9 @@ public class PreferenceBridge {
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct PreferenceKeys {
     public var keys: [SwiftUICore_LiquidGlass.PreferenceKey.Type]
-
+    
     public init()
-
+    
     public var startIndex: Swift.Int {
         get
     }
@@ -3643,23 +3697,23 @@ public struct PreferenceKeys {
     public var endIndex: Swift.Int {
         get
     }
-
+    
     public func _index(of: SwiftUICore_LiquidGlass.PreferenceKey.Type) -> Swift.Int
     public func union(_: SwiftUICore_LiquidGlass.PreferenceKeys) -> SwiftUICore_LiquidGlass.PreferenceKeys
     public func add(_: SwiftUICore_LiquidGlass.PreferenceKey.Type)
     public func remove(_: SwiftUICore_LiquidGlass.PreferenceKey.Type)
     public func contains(_: SwiftUICore_LiquidGlass.PreferenceKey.Type) -> Swift.Bool
-
+    
     public subscript(_: Swift.Int) -> SwiftUICore_LiquidGlass.PreferenceKey.Type {
         get
     }
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.PreferenceKeys, _: SwiftUICore_LiquidGlass.PreferenceKeys) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3668,7 +3722,7 @@ extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.RandomAccessCollection {
     public typealias Index = Swift.Int
     public typealias SubSequence = Swift.Slice<SwiftUICore_LiquidGlass.PreferenceKeys>
     public typealias Indices = Swift.Range<Swift.Int>
-
+    
     public func index(_: Self.Index, offsetBy: Swift.Int) -> Self.Index
     public func index(_: Self.Index, offsetBy: Swift.Int, limitedBy: Self.Index) -> Self.Index?
     public func distance(from: Self.Index, to: Self.Index) -> Swift.Int
@@ -3676,34 +3730,34 @@ extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.RandomAccessCollection {
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.BidirectionalCollection {
-
+    
     public func index(before: Self.Index) -> Self.Index
     public func formIndex(before: inout Self.Index)
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.Collection {
-
+    
     public typealias Iterator = Swift.IndexingIterator<SwiftUICore_LiquidGlass.PreferenceKeys>
-
+    
     public var indices: Self.Indices {
         get
     }
-
+    
     public var count: Swift.Int {
         get
     }
-
+    
     public func _customLastIndexOfEquatableElement(_: Self.Element) -> Self.Index??
     public func _customIndexOfEquatableElement(_: Self.Element) -> Self.Index??
-
+    
     public func _failEarlyRangeCheck(_: Self.Index, bounds: Swift.Range<Self.Index>)
     public func _failEarlyRangeCheck(_: Self.Index, bounds: Swift.ClosedRange<Self.Index>)
     public func _failEarlyRangeCheck(_: Swift.Range<Self.Index>, bounds: Swift.Range<Self.Index>)
     public func index(after: Self.Index) -> Self.Index
     public func formIndex(after: inout Self.Index)
-
+    
     public subscript(_: Swift.Range<Self.Index>) -> Self.SubSequence {
         get
     }
@@ -3711,7 +3765,7 @@ extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.Collection {
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.PreferenceKeys: Swift.Sequence {
-
+    
     public func makeIterator() -> Self.Iterator
     public func _customContainsEquatableElement(_: Self.Element) -> Swift.Bool?
     public func _copyToContiguousArray() -> Swift.ContiguousArray<Self.Element>
@@ -3733,16 +3787,16 @@ public struct ViewTransform {
         case coordinateSpace(SwiftUICore_LiquidGlass.CoordinateSpaceTag)
         case sizedSpace(SwiftUICore_LiquidGlass.CoordinateSpaceTag, size: __C.CGSize)
         case scrollGeometry(SwiftUICore_LiquidGlass.ViewTransform.ScrollGeometryItem)
-
+        
         public func apply(to: inout SwiftUICore_LiquidGlass.ScrollGeometry?, allowUnclipped: Swift.Bool)
         public func encode(to: Swift.Encoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.ViewTransform.Item, _: SwiftUICore_LiquidGlass.ViewTransform.Item) -> Swift.Bool
     }
     public struct ScrollGeometryItem {
         public var base: SwiftUICore_LiquidGlass.ScrollGeometry
         public var isClipped: Swift.Bool
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.ViewTransform.ScrollGeometryItem, _: SwiftUICore_LiquidGlass.ViewTransform.ScrollGeometryItem) -> Swift.Bool
     }
     public struct UnsafeBuffer {
@@ -3755,7 +3809,7 @@ public struct ViewTransform {
             public override static var type: Any.Type {
                 get
             }
-
+            
             public override static func moveInitialize(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element, from: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element)
             public override static func deinitialize(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element)
             public override static func forEach(elt: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element, inverted: Swift.Bool, stop: inout Swift.Bool, _: (SwiftUICore_LiquidGlass.ViewTransform.Item, inout Swift.Bool) -> ())
@@ -3763,13 +3817,13 @@ public struct ViewTransform {
             public override static func equal(_: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element, _: SwiftUICore_LiquidGlass._UnsafeHeterogeneousBuffer_Element) -> Swift.Bool
         }
         public var contents: SwiftUICore_LiquidGlass.UnsafeHeterogeneousBuffer
-
+        
         public init()
-
+        
         public var description: Swift.String {
             get
         }
-
+        
         public func forEach(inverted: Swift.Bool, stop: inout Swift.Bool, _: (SwiftUICore_LiquidGlass.ViewTransform.Item, inout Swift.Bool) -> ())
         public func appendAffineTransform(_: __C.CGAffineTransform, inverse: Swift.Bool)
         public func appendProjectionTransform(_: SwiftUICore_LiquidGlass.ProjectionTransform, inverse: Swift.Bool)
@@ -3778,14 +3832,14 @@ public struct ViewTransform {
         public func appendScrollGeometry(_: SwiftUICore_LiquidGlass.ScrollGeometry, isClipped: Swift.Bool)
         public func appendCoordinateSpace(id: SwiftUICore_LiquidGlass.CoordinateSpace.ID, transform: inout SwiftUICore_LiquidGlass.ViewTransform)
         public func destroy()
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.ViewTransform.UnsafeBuffer, _: SwiftUICore_LiquidGlass.ViewTransform.UnsafeBuffer) -> Swift.Bool
     }
     public var head: SwiftUICore_LiquidGlass.AnyElement?
     public var spaces: SwiftUICore_LiquidGlass.CoordinateSpaceNode?
-
+    
     public init()
-
+    
     public var description: Swift.String {
         get
     }
@@ -3798,7 +3852,7 @@ public struct ViewTransform {
     public var nearestScrollGeometry: SwiftUICore_LiquidGlass.ScrollGeometry? {
         get
     }
-
+    
     public func coordinateSpaceTag(_: SwiftUICore_LiquidGlass.CoordinateSpace) -> SwiftUICore_LiquidGlass.CoordinateSpaceTag?
     public func convert(_: SwiftUICore_LiquidGlass.ViewTransform.Conversion, _: (_: SwiftUICore_LiquidGlass.ViewTransform.Item) -> ())
     public func convertLocalToSpace(_: SwiftUICore_LiquidGlass.CoordinateSpace, _: (_: SwiftUICore_LiquidGlass.ViewTransform.Item) -> ())
@@ -3808,7 +3862,7 @@ public struct ViewTransform {
     public func appendProjectionTransform(_: SwiftUICore_LiquidGlass.ProjectionTransform, inverse: Swift.Bool)
     public func withPosition(_: __C.CGPoint) -> SwiftUICore_LiquidGlass.ViewTransform
     public func convertGlobal(to: SwiftUICore_LiquidGlass.CoordinateSpace, points: inout [__C.CGPoint])
-
+    
     public func convertGlobal(from: SwiftUICore_LiquidGlass.CoordinateSpace, points: inout [__C.CGPoint])
     public func convertGlobal<A>(from: SwiftUICore_LiquidGlass.CoordinateSpace, points: inout A) where A: Swift.MutableCollection, A.Element == __C.CGPoint
     public func resetPosition(_: __C.CGPoint)
@@ -3817,7 +3871,7 @@ public struct ViewTransform {
     public func appendSizedSpace(id: SwiftUICore_LiquidGlass.CoordinateSpace.ID, size: __C.CGSize)
     public func appendSizedSpace(name: Swift.AnyHashable, size: __C.CGSize)
     public func appendTranslation(_: __C.CGSize)
-
+    
     public func convertSpaceToLocal(_: SwiftUICore_LiquidGlass.CoordinateSpace, _: (_: SwiftUICore_LiquidGlass.ViewTransform.Item) -> ())
     public func appendScrollGeometry(_: SwiftUICore_LiquidGlass.ScrollGeometry, isClipped: Swift.Bool)
     public func convertGlobalToSpace(_: SwiftUICore_LiquidGlass.CoordinateSpace, _: (_: SwiftUICore_LiquidGlass.ViewTransform.Item) -> ())
@@ -3830,56 +3884,61 @@ public struct ViewTransform {
     public func append(movingContentsOf: inout SwiftUICore_LiquidGlass.ViewTransform.UnsafeBuffer)
     public func forEach(inverted: Swift.Bool, _: (SwiftUICore_LiquidGlass.ViewTransform.Item, inout Swift.Bool) -> ())
     public func forEach(_: (SwiftUICore_LiquidGlass.ViewTransform.Item, inout Swift.Bool) -> ())
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.ViewTransform, _: SwiftUICore_LiquidGlass.ViewTransform) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.ViewTransform: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.ViewTransform: Swift.CustomStringConvertible {
-
+    
 }
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct ViewSize {
-
+    
     public init(_: __C.CGSize, proposal: SwiftUICore_LiquidGlass._ProposedSize)
-
+    
     public var width: CoreGraphics.CGFloat {
         get
-
+    }
+    
     public var height: CoreGraphics.CGFloat {
         get
-
+    }
+    
     public var proposal: SwiftUICore_LiquidGlass._ProposedSize {
         get
-
+    }
+    
     public var animatableData: SwiftUICore_LiquidGlass.AnimatablePair<CoreGraphics.CGFloat, CoreGraphics.CGFloat> {
         get
-
+    }
+    
     public func didSetAnimatableData(_: __C.CGSize)
     public func inset(by: SwiftUICore_LiquidGlass.EdgeInsets) -> SwiftUICore_LiquidGlass.ViewSize
-
+    
     public subscript(_: SwiftUICore_LiquidGlass.Axis) -> CoreGraphics.CGFloat {
         get
-
+    }
+    
     public static var zero: SwiftUICore_LiquidGlass.ViewSize {
         get
     }
     public static var invalidValue: SwiftUICore_LiquidGlass.ViewSize {
         get
     }
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.ViewSize, _: SwiftUICore_LiquidGlass.ViewSize) -> Swift.Bool
     public static func fixed(_: __C.CGSize) -> SwiftUICore_LiquidGlass.ViewSize
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.ViewSize: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -3895,13 +3954,13 @@ public enum GestureDebug {
         case modifier
         case gesture
         case combiner
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.GestureDebug.Kind, _: SwiftUICore_LiquidGlass.GestureDebug.Kind) -> Swift.Bool
     }
     public struct Data {
@@ -3911,17 +3970,18 @@ public enum GestureDebug {
         public var resetSeed: Swift.UInt32
         public var properties: SwiftUICore_LiquidGlass.ArrayWith2Inline<(Swift.String, Swift.String)>
         public var childrenBox: SwiftUICore_LiquidGlass.GestureDebug.ChildrenBox
-
+        
         public init(kind: SwiftUICore_LiquidGlass.GestureDebug.Kind, type: Any.Type, children: SwiftUICore_LiquidGlass.ArrayWith2Inline<SwiftUICore_LiquidGlass.GestureDebug.Data>, phase: SwiftUICore_LiquidGlass.GesturePhase<()>, attribute: __C.AGAttribute?, resetSeed: Swift.UInt32, frame: __C.CGRect, properties: SwiftUICore_LiquidGlass.ArrayWith2Inline<(Swift.String, Swift.String)>)
         public init()
-
+        
         public var children: SwiftUICore_LiquidGlass.ArrayWith2Inline<SwiftUICore_LiquidGlass.GestureDebug.Data> {
             get
-
+        }
+        
         public func printSubtree(parent: SwiftUICore_LiquidGlass.GestureDebug.Data?, indent: SwiftUICore_LiquidGlass.GestureDebug.Data.Indent)
         public func frameDescription(relativeTo: SwiftUICore_LiquidGlass.GestureDebug.Data?) -> Swift.String
         public func printTree()
-
+        
         public static let defaultValue: SwiftUICore_LiquidGlass.GestureDebug.Data
     }
     public enum ChildrenBox {
@@ -3930,7 +3990,7 @@ public enum GestureDebug {
     public struct Value<A> {
         public var kind: SwiftUICore_LiquidGlass.GestureDebug.Kind
         public var type: Any.Type
-
+        
         public var phase: SwiftUICore_LiquidGlass.GesturePhase<A> {
             get
         }
@@ -3972,9 +4032,9 @@ public struct SExpPrinter {
     public var output: Swift.String
     public var depth: Swift.Int
     public var indent: Swift.String
-
+    
     public init(tag: Swift.String, singleLine: Swift.Bool)
-
+    
     public func end() -> Swift.String
     public func pop()
     public func push(_: Swift.String)
@@ -3986,9 +4046,9 @@ public struct SExpPrinter {
 public struct DisplayList {
     public struct Features {
         public let rawValue: Swift.UInt16
-
+        
         public init(rawValue: Swift.UInt16)
-
+        
         public static var required: SwiftUICore_LiquidGlass.DisplayList.Features {
             get
         }
@@ -4030,10 +4090,10 @@ public struct DisplayList {
         public var version: SwiftUICore_LiquidGlass.DisplayList.Version
         public var value: SwiftUICore_LiquidGlass.DisplayList.Item.Value
         public var identity: SwiftUICore_LiquidGlass._DisplayList_Identity
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
         public init(_: SwiftUICore_LiquidGlass.DisplayList.Item.Value, frame: __C.CGRect, identity: SwiftUICore_LiquidGlass._DisplayList_Identity, version: SwiftUICore_LiquidGlass.DisplayList.Version)
-
+        
         public var properties: SwiftUICore_LiquidGlass.DisplayList.Properties {
             get
         }
@@ -4046,7 +4106,7 @@ public struct DisplayList {
         public var description: Swift.String {
             get
         }
-
+        
         public func nextUpdate(after: SwiftUICore_LiquidGlass.Time) -> SwiftUICore_LiquidGlass.Time
         public func forEachIdentity(_: (SwiftUICore_LiquidGlass._DisplayList_Identity, inout Swift.Bool) -> ()) -> Swift.Bool
         public func forEachRBDisplayList(_: (_: __C.RBDisplayListContents) -> ())
@@ -4066,7 +4126,7 @@ public struct DisplayList {
         public func canonicalize(options: SwiftUICore_LiquidGlass.DisplayList.Options)
         public func matchesTopLevelStructure(of: SwiftUICore_LiquidGlass.DisplayList.Item) -> Swift.Bool
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.Item, _: SwiftUICore_LiquidGlass.DisplayList.Item) -> Swift.Bool
     }
     public struct Content {
@@ -4086,14 +4146,14 @@ public struct DisplayList {
             indirect case drawing(__C.RBDisplayListContents, __C.CGPoint, SwiftUICore_LiquidGlass.RasterizationOptions)
             indirect case view(SwiftUICore_LiquidGlass._DisplayList_ViewFactory)
             case placeholder(id: SwiftUICore_LiquidGlass._DisplayList_Identity)
-
+            
             public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+            
             public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         }
         public var value: SwiftUICore_LiquidGlass.DisplayList.Content.Value
         public var seed: SwiftUICore_LiquidGlass.DisplayList.Seed
-
+        
         public init(_: SwiftUICore_LiquidGlass.DisplayList.Content.Value, seed: SwiftUICore_LiquidGlass.DisplayList.Seed)
     }
     public enum Effect {
@@ -4120,26 +4180,26 @@ public struct DisplayList {
         case identity
         case geometryGroup
         case compositingGroup
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     }
     public struct ChameleonColor {
         public var fallback: ResolvedHDR
         public var allowedDynamicRange: SwiftUICore_LiquidGlass.Image.DynamicRange
         public var filters: [SwiftUICore_LiquidGlass.GraphicsFilter]
-
+        
         public init(_: ResolvedHDR, allowedDynamicRange: SwiftUICore_LiquidGlass.Image.DynamicRange, filters: [SwiftUICore_LiquidGlass.GraphicsFilter])
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.ChameleonColor, _: SwiftUICore_LiquidGlass.DisplayList.ChameleonColor) -> Swift.Bool
     }
     public struct BackdropGroup {
         public var isEnabled: Swift.Bool
         public var name: Swift.String?
-
+        
         public init(isEnabled: Swift.Bool, name: Swift.String?)
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.BackdropGroup, _: SwiftUICore_LiquidGlass.DisplayList.BackdropGroup) -> Swift.Bool
     }
     public enum Transform {
@@ -4147,7 +4207,7 @@ public struct DisplayList {
         case projection(SwiftUICore_LiquidGlass.ProjectionTransform)
         case rotation(SwiftUICore_LiquidGlass._RotationEffect.Data)
         case rotation3D(SwiftUICore_LiquidGlass._Rotation3DEffect.Data)
-
+        
         public var projectionTransform: SwiftUICore_LiquidGlass.ProjectionTransform? {
             get
         }
@@ -4155,61 +4215,61 @@ public struct DisplayList {
     public struct ArchiveIDs {
         public var uuid: Foundation.UUID
         public var stableIDs: SwiftUICore_LiquidGlass._DisplayList_StableIdentityMap
-
+        
         public init(uuid: Foundation.UUID, stableIDs: SwiftUICore_LiquidGlass._DisplayList_StableIdentityMap)
     }
     public struct InterpolatorAnimation {
         public var value: SwiftUICore_LiquidGlass.StrongHash?
         public var animation: SwiftUICore_LiquidGlass.Animation?
-
+        
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     }
     public struct Version {
         public var value: Swift.Int
-
+        
         public init(decodedValue: Swift.Int)
         public init(forUpdate: ())
         public init()
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
         public func combine(with: SwiftUICore_LiquidGlass.DisplayList.Version)
-
+        
         public static let lastValue: Swift.Int
-
+        
         public static func < (_: SwiftUICore_LiquidGlass.DisplayList.Version, _: SwiftUICore_LiquidGlass.DisplayList.Version) -> Swift.Bool
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.Version, _: SwiftUICore_LiquidGlass.DisplayList.Version) -> Swift.Bool
     }
     public struct Seed {
         public var value: Swift.UInt16
-
+        
         public init(decodedValue: Swift.UInt16)
         public init()
         public init(_: SwiftUICore_LiquidGlass.DisplayList.Version)
-
+        
         public var hashValue: Swift.Int {
             get
         }
-
+        
         public func invalidate()
         public func hash(into: inout Swift.Hasher)
-
+        
         public static var undefined: SwiftUICore_LiquidGlass.DisplayList.Seed {
             get
         }
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.Seed, _: SwiftUICore_LiquidGlass.DisplayList.Seed) -> Swift.Bool
     }
     public struct Properties {
         public let rawValue: Swift.UInt32
-
+        
         public init(rawValue: Swift.UInt32)
-
+        
         public static var hiddenForReuse: SwiftUICore_LiquidGlass.DisplayList.Properties {
             get
         }
@@ -4246,14 +4306,14 @@ public struct DisplayList {
             get
         }
         public static let defaultValue: SwiftUICore_LiquidGlass.DisplayList
-
+        
         public static func reduce(value: inout SwiftUICore_LiquidGlass.DisplayList, nextValue: () -> SwiftUICore_LiquidGlass.DisplayList)
     }
     public struct Options {
         public let rawValue: Swift.UInt8
-
+        
         public init(rawValue: Swift.UInt8)
-
+        
         public static var defaultValue: SwiftUICore_LiquidGlass.DisplayList.Options {
             get
         }
@@ -4267,16 +4327,16 @@ public struct DisplayList {
             public var serial: Swift.UInt32
             public var archiveIdentity: SwiftUICore_LiquidGlass._DisplayList_Identity
             public var archiveSerial: Swift.UInt32
-
+            
             public var string: Swift.String {
                 get
             }
             public var hashValue: Swift.Int {
                 get
             }
-
+            
             public func hash(into: inout Swift.Hasher)
-
+            
             public static func == (_: SwiftUICore_LiquidGlass.DisplayList.Index.ID, _: SwiftUICore_LiquidGlass.DisplayList.Index.ID) -> Swift.Bool
         }
         public struct RestoreOptions {
@@ -4287,13 +4347,13 @@ public struct DisplayList {
         public var archiveIdentity: SwiftUICore_LiquidGlass._DisplayList_Identity
         public var archiveSerial: Swift.UInt32
         public var restored: SwiftUICore_LiquidGlass.DisplayList.Index.RestoreOptions
-
+        
         public init()
-
+        
         public var id: SwiftUICore_LiquidGlass.DisplayList.Index.ID {
             get
         }
-
+        
         public func assertItem(_: SwiftUICore_LiquidGlass.DisplayList.Item)
         public func updateArchive(entering: Swift.Bool)
         public func skip(item: SwiftUICore_LiquidGlass.DisplayList.Item)
@@ -4304,22 +4364,22 @@ public struct DisplayList {
     }
     public enum PlatformEffect {
         case identity
-
+        
         public init(from: Swift.Decoder) throws
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-
+        
         public var hashValue: Swift.Int {
             get
         }
         public var features: SwiftUICore_LiquidGlass.DisplayList.Features {
             get
         }
-
+        
         public func hash(into: inout Swift.Hasher)
         public func print(into: inout SwiftUICore_LiquidGlass.SExpPrinter)
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
         public func encode(to: Swift.Encoder) throws
-
+        
         public static func == (_: SwiftUICore_LiquidGlass.DisplayList.PlatformEffect, _: SwiftUICore_LiquidGlass.DisplayList.PlatformEffect) -> Swift.Bool
     }
     public class GraphicsRenderer {
@@ -4336,11 +4396,11 @@ public struct DisplayList {
                 public var index: SwiftUICore_LiquidGlass.DisplayList.Index.ID
                 public var seed: SwiftUICore_LiquidGlass.DisplayList.Seed
                 public var scale: CoreGraphics.CGFloat
-
+                
                 public var hashValue: Swift.Int {
                     get
                 }
-
+                
                 public func hash(into: inout Swift.Hasher)
             }
             public var animators: [SwiftUICore_LiquidGlass.DisplayList.GraphicsRenderer.Cache.AnimatorKey : SwiftUICore_LiquidGlass._DisplayList_AnyEffectAnimator]
@@ -4354,9 +4414,9 @@ public struct DisplayList {
         public var inTransitionGroup: Swift.Bool
         public var stateHashes: [SwiftUICore_LiquidGlass.StrongHash]
         public var platformViewMode: SwiftUICore_LiquidGlass.DisplayList.GraphicsRenderer.PlatformViewMode
-
+        
         public init(platformViewMode: SwiftUICore_LiquidGlass.DisplayList.GraphicsRenderer.PlatformViewMode)
-
+        
         public func renderDisplayList(_: SwiftUICore_LiquidGlass.DisplayList, at: SwiftUICore_LiquidGlass.Time, in: inout SwiftUICore_LiquidGlass.GraphicsContext)
         public func drawImplicitLayer(in: inout SwiftUICore_LiquidGlass.GraphicsContext, content: (_: inout SwiftUICore_LiquidGlass.GraphicsContext) -> ())
         public func drawPlatformLayer(_: __C.CALayer, in: SwiftUICore_LiquidGlass.GraphicsContext, size: __C.CGSize, update: Swift.Bool)
@@ -4367,14 +4427,14 @@ public struct DisplayList {
     }
     public class InterpolatorGroup {
         public var maxDuration: Swift.Double
-
+        
         public var features: SwiftUICore_LiquidGlass.DisplayList.Features {
             get
         }
         public var properties: SwiftUICore_LiquidGlass.DisplayList.Properties {
             get
         }
-
+        
         public func reset()
         public func update(contentSeed: SwiftUICore_LiquidGlass.DisplayList.Seed, transition: SwiftUICore_LiquidGlass.ContentTransition, animation: SwiftUICore_LiquidGlass.Animation?, listener: SwiftUICore_LiquidGlass.AnimationListener?, contentsScale: Swift.Float, rasterizationOptions: SwiftUICore_LiquidGlass.RasterizationOptions, supportsVFD: Swift.Bool)
         public func rewriteInterpolation(serial: Swift.UInt32, list: inout SwiftUICore_LiquidGlass.DisplayList, time: AttributeGraph.Attribute<SwiftUICore_LiquidGlass.Time>, frame: __C.CGRect, contentOrigin: __C.CGPoint, contentOffset: __C.CGSize, version: SwiftUICore_LiquidGlass.DisplayList.Version) -> Swift.Bool
@@ -4385,16 +4445,16 @@ public struct DisplayList {
         public var layer: SwiftUICore_LiquidGlass.DisplayList.InterpolatorLayer
         public var contentsScale: Swift.Float
         public var rasterizationOptions: SwiftUICore_LiquidGlass.RasterizationOptions
-
+        
         public init()
-
+        
         public override var features: SwiftUICore_LiquidGlass.DisplayList.Features {
             get
         }
         public override var properties: SwiftUICore_LiquidGlass.DisplayList.Properties {
             get
         }
-
+        
         public override func reset()
         public override func nextUpdate(after: SwiftUICore_LiquidGlass.Time) -> SwiftUICore_LiquidGlass.Time
         public override func update(contentSeed: SwiftUICore_LiquidGlass.DisplayList.Seed, transition: SwiftUICore_LiquidGlass.ContentTransition, animation: SwiftUICore_LiquidGlass.Animation?, listener: SwiftUICore_LiquidGlass.AnimationListener?, contentsScale: Swift.Float, rasterizationOptions: SwiftUICore_LiquidGlass.RasterizationOptions, supportsVFD: Swift.Bool)
@@ -4427,7 +4487,7 @@ public struct DisplayList {
         public var contentSeed: SwiftUICore_LiquidGlass.DisplayList.Seed
         public var supportsVFD: Swift.Bool
         public var needsUpdate: Swift.Bool
-
+        
         public func invalidateContentsScale()
         public func setDisplayList(_: SwiftUICore_LiquidGlass.DisplayList, origin: __C.CGPoint)
         public func updateInterpolators(contentsScale: Swift.Float, maxDuration: Swift.Double)
@@ -4470,7 +4530,7 @@ public struct DisplayList {
                 public var shadow: SwiftUICore_LiquidGlass.DisplayList.Seed
                 public var properties: SwiftUICore_LiquidGlass.DisplayList.Seed
                 public var platformSeeds: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.PlatformViewInfo.Seeds
-
+                
                 public func invalidate()
             }
             public struct ID {
@@ -4487,9 +4547,9 @@ public struct DisplayList {
             public var isRemoved: Swift.Bool
             public var isInvalid: Swift.Bool
             public var nextUpdate: SwiftUICore_LiquidGlass.Time
-
+            
             public init(platform: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform, kind: SwiftUICore_LiquidGlass.PlatformViewDefinition.ViewKind)
-
+            
             public func reset()
         }
         public struct Platform {
@@ -4506,13 +4566,13 @@ public struct DisplayList {
                 public let rawValue: Swift.UInt8
             }
             public var encoding: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform.Encoding
-
+            
             public init(definition: SwiftUICore_LiquidGlass.PlatformViewDefinition.Type)
-
+            
             public var description: Swift.String {
                 get
             }
-
+            
             public func setFilters(_: [SwiftUICore_LiquidGlass.GraphicsFilter], of: Swift.AnyObject)
             public func setShadow(_: SwiftUICore_LiquidGlass.ResolvedShadowStyle?, layer: __C.CALayer)
             public func updateDrawingView(_: inout Swift.AnyObject, options: SwiftUICore_LiquidGlass.RasterizationOptions, contentsScale: CoreGraphics.CGFloat) -> SwiftUICore_LiquidGlass.PlatformDrawable
@@ -4534,9 +4594,9 @@ public struct DisplayList {
             public func updateClipShapesAsync(layer: inout SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.AsyncLayer, oldState: Swift.UnsafePointer<SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State>, newState: Swift.UnsafePointer<SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State>) -> Swift.Bool
             public func updateShadowAsync(layer: inout SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.AsyncLayer, oldState: Swift.UnsafePointer<SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State>, oldItem: SwiftUICore_LiquidGlass.DisplayList.Item, newState: Swift.UnsafePointer<SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State>, newItem: SwiftUICore_LiquidGlass.DisplayList.Item, boundsChanged: Swift.Bool) -> Swift.Bool
             public func viewLayer(_: Swift.AnyObject) -> __C.CALayer
-
+            
             public static let caLayer: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform
-
+            
             public static func == (_: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform, _: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform) -> Swift.Bool
         }
         public enum Model {
@@ -4544,7 +4604,7 @@ public struct DisplayList {
             public struct Clip {
                 public var path: SwiftUICore_LiquidGlass.Path
                 public var style: SwiftUICore_LiquidGlass.FillStyle
-
+                
                 public func clipRect() -> SwiftUICore_LiquidGlass.FixedRoundedRect?
             }
             public struct State {
@@ -4577,11 +4637,11 @@ public struct DisplayList {
                 public var stateHashes: [SwiftUICore_LiquidGlass.StrongHash]
                 public var platformState: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.PlatformState
                 public var versions: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State.Versions
-
+                
                 public var hasDODEffects: Swift.Bool {
                     get
                 }
-
+                
                 public func reset()
                 public func clipRect() -> SwiftUICore_LiquidGlass.FixedRoundedRect?
                 public func adjust(for: __C.CGAffineTransform)
@@ -4644,7 +4704,7 @@ public struct DisplayList {
             public var index: SwiftUICore_LiquidGlass.DisplayList.Index
             public var cacheSeed: Swift.UInt32
             public var currentList: SwiftUICore_LiquidGlass.DisplayList
-
+            
             public func invalidateAll()
             public func clearAsyncValues()
             public func reclaim(time: SwiftUICore_LiquidGlass.Time)
@@ -4667,11 +4727,11 @@ public struct DisplayList {
         public var lastTime: SwiftUICore_LiquidGlass.Time
         public var isValid: Swift.Bool
         public var wasValid: Swift.Bool
-
+        
         public var effectiveRootPlatform: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform {
             get
         }
-
+        
         public func render(rootView: Swift.AnyObject, from: SwiftUICore_LiquidGlass.DisplayList, time: SwiftUICore_LiquidGlass.Time, version: SwiftUICore_LiquidGlass.DisplayList.Version, maxVersion: SwiftUICore_LiquidGlass.DisplayList.Version, environment: ViewRenderer.Environment) -> SwiftUICore_LiquidGlass.Time
         public func update(container: inout SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Container, from: SwiftUICore_LiquidGlass.DisplayList, parentState: Swift.UnsafePointer<SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Model.State>)
         public func renderAsync(to: SwiftUICore_LiquidGlass.DisplayList, time: SwiftUICore_LiquidGlass.Time, targetTimestamp: SwiftUICore_LiquidGlass.Time?, version: SwiftUICore_LiquidGlass.DisplayList.Version, maxVersion: SwiftUICore_LiquidGlass.DisplayList.Version) -> SwiftUICore_LiquidGlass.Time?
@@ -4685,12 +4745,12 @@ public struct DisplayList {
     public var items: [SwiftUICore_LiquidGlass.DisplayList.Item]
     public var features: SwiftUICore_LiquidGlass.DisplayList.Features
     public var properties: SwiftUICore_LiquidGlass.DisplayList.Properties
-
+    
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
     public init()
     public init(_: SwiftUICore_LiquidGlass.DisplayList.Item)
     public init(_: [SwiftUICore_LiquidGlass.DisplayList.Item])
-
+    
     public var isEmpty: Swift.Bool {
         get
     }
@@ -4703,7 +4763,7 @@ public struct DisplayList {
     public var description: Swift.String {
         get
     }
-
+    
     public func print(into: inout SwiftUICore_LiquidGlass.SExpPrinter)
     public func forEachRBDisplayList(_: (_: __C.RBDisplayListContents) -> ())
     public func nextUpdate(after: SwiftUICore_LiquidGlass.Time) -> SwiftUICore_LiquidGlass.Time
@@ -4717,9 +4777,9 @@ public struct DisplayList {
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     public func transform(_: (_: inout SwiftUICore_LiquidGlass.DisplayList.Item) -> ())
     public func translate(by: __C.CGSize, version: SwiftUICore_LiquidGlass.DisplayList.Version)
-
+    
     public static var overrideMayInsertCALayers: Swift.Bool?
-
+    
     public static func == (_: SwiftUICore_LiquidGlass.DisplayList, _: SwiftUICore_LiquidGlass.DisplayList) -> Swift.Bool
 }
 
@@ -4729,12 +4789,12 @@ extension SwiftUICore_LiquidGlass.DisplayList {
         public struct Environment {
             public var contentsScale: CoreGraphics.CGFloat
             public var opaqueBackground: Swift.Bool
-
+            
             public init(contentsScale: CoreGraphics.CGFloat, opaqueBackground: Swift.Bool)
             public init(contentsScale: CoreGraphics.CGFloat)
-
+            
             public static let invalid: ViewRenderer.Environment
-
+            
             public static func == (_: ViewRenderer.Environment, _: ViewRenderer.Environment) -> Swift.Bool
         }
         public enum State {
@@ -4748,17 +4808,17 @@ extension SwiftUICore_LiquidGlass.DisplayList {
         public var state: ViewRenderer.State
         public var renderer: SwiftUICore_LiquidGlass.ViewRendererBase?
         public var configChanged: Swift.Bool
-
+        
         public init(definition: SwiftUICore_LiquidGlass.PlatformViewDefinition.Type)
         public init(platform: SwiftUICore_LiquidGlass.DisplayList.ViewUpdater.Platform)
-
+        
         public var viewCacheIsEmpty: Swift.Bool {
             get
         }
         public var definition: SwiftUICore_LiquidGlass.PlatformViewDefinition.Type {
             get
         }
-
+        
         public func renderAsync(to: SwiftUICore_LiquidGlass.DisplayList, time: SwiftUICore_LiquidGlass.Time, nextTime: SwiftUICore_LiquidGlass.Time, targetTimestamp: SwiftUICore_LiquidGlass.Time?, version: SwiftUICore_LiquidGlass.DisplayList.Version, maxVersion: SwiftUICore_LiquidGlass.DisplayList.Version) -> SwiftUICore_LiquidGlass.Time?
         public func exportedObject(rootView: Swift.AnyObject) -> Swift.AnyObject?
         public func render(rootView: Swift.AnyObject, from: SwiftUICore_LiquidGlass.DisplayList, time: SwiftUICore_LiquidGlass.Time, nextTime: SwiftUICore_LiquidGlass.Time, version: SwiftUICore_LiquidGlass.DisplayList.Version, maxVersion: SwiftUICore_LiquidGlass.DisplayList.Version, environment: ViewRenderer.Environment) -> SwiftUICore_LiquidGlass.Time
@@ -4775,19 +4835,19 @@ extension SwiftUICore_LiquidGlass.DisplayList {
         public let renderer: SwiftUICore_LiquidGlass.DisplayList.GraphicsRenderer
         public var seed: SwiftUICore_LiquidGlass.DisplayList.Seed
         public var lastContentsScale: CoreGraphics.CGFloat
-
+        
         public func render(rootView: Swift.AnyObject, from: SwiftUICore_LiquidGlass.DisplayList, time: SwiftUICore_LiquidGlass.Time, version: SwiftUICore_LiquidGlass.DisplayList.Version, maxVersion: SwiftUICore_LiquidGlass.DisplayList.Version, environment: ViewRenderer.Environment) -> SwiftUICore_LiquidGlass.Time
     }
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.DisplayList: Swift.Equatable {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUICore_LiquidGlass.DisplayList: Swift.CustomStringConvertible {
-
+    
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
