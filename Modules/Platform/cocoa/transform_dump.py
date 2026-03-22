@@ -129,8 +129,14 @@ def transform_file(input_path, output_path, module_name, abi_name, package_name,
     
     # Strip our added header / available annotations if they're there
     if lines and 'swift-interface-format-version' in lines[0]:
-        # Assume it's an 8 line header
-        lines = lines[8:]
+        idx = 0
+        while idx < len(lines):
+            l = lines[idx].strip()
+            if l.startswith('// swift-') or l.startswith('import ') or l.startswith('@_exported ') or l == "":
+                idx += 1
+            else:
+                break
+        lines = lines[idx:]
     
     # Strip all AVAILABLE lines
     lines = [L for L in lines if L.strip() != AVAILABLE]
@@ -229,7 +235,7 @@ def main():
             'module_name': 'SwiftUICore_LiquidGlass',
             'abi_name': 'SwiftUICore_LiquidGlass',
             'package_name': 'SwiftUICore',
-            'replace_prefixes': ['SwiftUICore'],
+            'replace_prefixes': ['SwiftUICore', 'SwiftUI'],
             'exported_import': 'SwiftUICore',
         },
     ]
