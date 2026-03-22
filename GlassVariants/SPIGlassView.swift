@@ -7,6 +7,8 @@
 
 import SwiftUI_LiquidGlass
 
+extension Material: @retroactive ShapeStyle {}
+
 extension ShapeStyle where Self == Material {
     public static func _glass(_ variant: Material._GlassVariant = .regular) -> Material {
         return Material._glass(variant)
