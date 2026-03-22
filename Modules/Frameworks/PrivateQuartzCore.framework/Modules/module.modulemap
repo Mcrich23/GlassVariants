@@ -1,8 +1,0 @@
-framework module PrivateQuartzCore {
-    umbrella "Headers"
-
-    export *
-    module * { export * }
-
-    link framework "QuartzCore"
-}
