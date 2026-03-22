@@ -221,6 +221,15 @@ def main():
             'replace_prefixes': ['SwiftUI'],
             'exported_import': 'SwiftUI',
         },
+        {
+            'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
+            'output': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
+            'module_name': 'SwiftUICore_LiquidGlass',
+            'abi_name': 'SwiftUICore_LiquidGlass',
+            'package_name': 'SwiftUICore',
+            'replace_prefixes': ['SwiftUICore'],
+            'exported_import': 'SwiftUICore',
+        },
     ]
     
     for cfg in configs:
