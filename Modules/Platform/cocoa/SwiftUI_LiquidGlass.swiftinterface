@@ -6,6 +6,12 @@ import CoreFoundation
 import QuartzCore
 import Swift
 @_exported import SwiftUI
+@_exported import SwiftUICore_LiquidGlass
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct _ShapeSet : Swift.Sendable {
+  public init(shapes: [SwiftUI_LiquidGlass.AnyShape], smoothness: CoreFoundation.CGFloat = 0)
+}
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 extension SwiftUI_LiquidGlass.View {
