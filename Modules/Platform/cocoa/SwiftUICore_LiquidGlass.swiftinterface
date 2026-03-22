@@ -6,6 +6,7 @@ import CoreFoundation
 import QuartzCore
 import Swift
 @_exported import SwiftUICore
+import PrivateQuartzCore
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct _Glass {
@@ -2138,11 +2139,6 @@ public class AnyCAFilterProvider {
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
-extension SwiftUICore_LiquidGlass.AnyCAFilterProvider: Swift.Equatable {
-    public static func == (_: Self, _: Self) -> Swift.Bool
-}
-
-@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct SExpPrinter {
     public var output: Swift.String
     public var depth: Swift.Int
@@ -2158,6 +2154,34 @@ public struct SExpPrinter {
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.ShadowStyle {
+    public struct Kind {
+        public let rawValue: Swift.UInt8
+
+        public init(rawValue: Swift.UInt8)
+
+        public static var inner: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+        public static var requiresKnockout: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+        public static var only: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+        public static var drop: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+        public static var ignoresFill: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+        public static var nonOpaque: SwiftUICore_LiquidGlass.ShadowStyle.Kind {
+            get
+        }
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public struct ResolvedShadowStyle {
     public var color: ResolvedHDR
     public var radius: CoreGraphics.CGFloat
@@ -2166,7 +2190,6 @@ public struct ResolvedShadowStyle {
 
     public init?(nsShadow: NSObject)
     public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
-    public init(color: ResolvedHDR, radius: CoreGraphics.CGFloat, offset: CGSize, midpoint: Swift.Float, kind: SwiftUICore_LiquidGlass.ShadowStyle.Kind)
 
     public var insets: SwiftUICore_LiquidGlass.EdgeInsets {
         get
@@ -2179,11 +2202,6 @@ public struct ResolvedShadowStyle {
     public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
 
     public static func == (_: SwiftUICore_LiquidGlass.ResolvedShadowStyle, _: SwiftUICore_LiquidGlass.ResolvedShadowStyle) -> Swift.Bool
-}
-
-@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
-extension SwiftUICore_LiquidGlass.ResolvedShadowStyle: Swift.Equatable {
-    public static func == (_: Self, _: Self) -> Swift.Bool
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
@@ -2208,6 +2226,23 @@ extension SwiftUICore_LiquidGlass.GraphicsFilter: SwiftUICore_LiquidGlass.ViewMo
 }
 
 @available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public class AnyMaterialCustomFillProvider {
+    public var provider: SwiftUICore_LiquidGlass._Material_CustomFillProvider {
+        get
+    }
+
+    public func updateCALayer(_: CALayer)
+    public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, bounds: CGRect)
+    public func isEqual(to: SwiftUICore_LiquidGlass.AnyMaterialCustomFillProvider) -> Swift.Bool
+    public func makeCALayer() -> CALayer?
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.AnyMaterialCustomFillProvider: Swift.Equatable {
+    public static func == (_: SwiftUICore_LiquidGlass.AnyMaterialCustomFillProvider, _: SwiftUICore_LiquidGlass.AnyMaterialCustomFillProvider) -> Swift.Bool
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
 public enum SDFStyle {
     public struct OutputSDF {
         public var inset: CoreGraphics.CGFloat
@@ -2222,8 +2257,8 @@ public enum SDFStyle {
         public func encode(to: inout SwiftUICore_LiquidGlass.ProtobufEncoder) throws
     }
     public struct Group {
-        public var type: Layer.SDFLayer.GroupType
-        public var elements: [Layer.SDFLayer.GroupLayer]
+//        public var type: Layer.SDFLayer.GroupType
+//        public var elements: [Layer.SDFLayer.GroupLayer]
         public var filters: [SwiftUICore_LiquidGlass.GraphicsFilter]
 
         public init(from: inout SwiftUICore_LiquidGlass.ProtobufDecoder) throws
@@ -2236,7 +2271,7 @@ public enum SDFStyle {
         public func draw(in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
 
         public static func == (_: SwiftUICore_LiquidGlass.SDFStyle.Group, _: SwiftUICore_LiquidGlass.SDFStyle.Group) -> Swift.Bool
-        public static func drawElements(_: [Layer.SDFLayer.GroupLayer], in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
+//        public static func drawElements(_: [Layer.SDFLayer.GroupLayer], in: inout SwiftUICore_LiquidGlass.GraphicsContext, sdf: inout SwiftUICore_LiquidGlass.SDF)
     }
     public struct GlassHighlight {
         public var inset: CoreGraphics.CGFloat
@@ -2304,7 +2339,7 @@ public enum SDFStyle {
     indirect case customFill(SwiftUICore_LiquidGlass.SDFStyle.CustomFill)
     indirect case glassDisplacement(SwiftUICore_LiquidGlass.SDFStyle.GlassDisplacement)
     indirect case glassHighlight(SwiftUICore_LiquidGlass.SDFStyle.GlassHighlight)
-    indirect case glassKeyFillHighlight(Layer.SDFLayer.Contents.GlassKeyFillHighlight)
+//    indirect case glassKeyFillHighlight(Layer.SDFLayer.Contents.GlassKeyFillHighlight)
     indirect case group(SwiftUICore_LiquidGlass.SDFStyle.Group)
     indirect case mask(SwiftUICore_LiquidGlass.SDFStyle.Mask)
     indirect case outputSDF(SwiftUICore_LiquidGlass.SDFStyle.OutputSDF)

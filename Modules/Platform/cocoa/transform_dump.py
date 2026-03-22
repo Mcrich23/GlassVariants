@@ -227,7 +227,7 @@ def main():
             'package_name': 'SwiftUI',
             'replace_prefixes': ['SwiftUI'],
             'exported_import': 'SwiftUI',
-            'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
+            # 'custom_imports': "@_exported import SwiftUICore_LiquidGlass"
         },
         {
             'input': os.path.join(base_dir, 'SwiftUICore_LiquidGlass.swiftinterface'),
@@ -237,6 +237,7 @@ def main():
             'package_name': 'SwiftUICore',
             'replace_prefixes': ['SwiftUICore', 'SwiftUI'],
             'exported_import': 'SwiftUICore',
+            'custom_imports': "import PrivateQuartzCore"
         },
     ]
     
