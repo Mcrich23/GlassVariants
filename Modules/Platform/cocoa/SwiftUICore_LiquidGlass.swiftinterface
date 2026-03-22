@@ -3197,3 +3197,40 @@ public struct _GlassEffectTransition {
 extension SwiftUICore_LiquidGlass._GlassEffectTransition: Swift.Equatable {
     public static func == (_: SwiftUICore_LiquidGlass._GlassEffectTransition, _: SwiftUICore_LiquidGlass._GlassEffectTransition) -> Swift.Bool
 }
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct GlassEffectView {
+    public var effect: SwiftUICore_LiquidGlass.GlassContainer.Effect
+    public var data: SwiftUICore_LiquidGlass.GlassContainer.DataStorage
+    public var resolved: SwiftUICore_LiquidGlass.GlassContainer.ResolvedStorage
+    public var proxy: SwiftUICore_LiquidGlass.GeometryProxy
+
+    public var body: some View {
+        get
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.GlassEffectView: SwiftUICore_LiquidGlass.GlassContainerNamespace {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.GlassEffectView: SwiftUICore_LiquidGlass.View {}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct GlassEffectModifier {
+    public var config: SwiftUICore_LiquidGlass.GlassEffectConfiguration
+    public var isEnabled: Swift.Bool
+
+    public static func _makeView(modifier: SwiftUICore_LiquidGlass._GraphValue<SwiftUICore_LiquidGlass.GlassEffectModifier>, inputs: SwiftUICore_LiquidGlass._ViewInputs, body: (SwiftUICore_LiquidGlass._Graph, SwiftUICore_LiquidGlass._ViewInputs) -> SwiftUICore_LiquidGlass._ViewOutputs) -> SwiftUICore_LiquidGlass._ViewOutputs
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+extension SwiftUICore_LiquidGlass.GlassEffectModifier: SwiftUICore_LiquidGlass.ViewModifier {
+    public typealias Body = Swift.Never
+}
+
+@available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *)
+public struct GlassEffectConfiguration {
+    public var glass: SwiftUICore_LiquidGlass._Glass
+    public var shape: SwiftUICore_LiquidGlass.AnyShape
+}
